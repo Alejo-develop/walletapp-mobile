@@ -1,12 +1,21 @@
-import { StyleSheet } from "react-native";
-import { height, primaryColor, width } from "../../utils/constants/style.constants";
+import {StyleSheet} from 'react-native';
+import {
+  height,
+  primaryColor,
+  width,
+} from '../../utils/constants/style.constants';
 
 const styles = StyleSheet.create({
-    container: {
-        width: width * 1,
-        height: height * 1,
-        backgroundColor: primaryColor
-    }
-})
+  container: {
+    flexGrow: 1,
+    width: width * 1,
+    height: height * 0.9,
+    backgroundColor: primaryColor,
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: height * 0.05,
+    paddingTop: height * 0.113,
+  },
+});
 
-export default styles
+export default styles;

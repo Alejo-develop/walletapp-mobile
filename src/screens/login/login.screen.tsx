@@ -1,6 +1,6 @@
 import {KeyboardAvoidingView, Platform, ScrollView, View} from 'react-native';
 import styles from './style';
-import FormLoginComponent from './components/form.component';
+import FormLoginComponent from './components/formLogin.component';
 import HeaderLoginComponent from './components/header.component';
 import ButtonComponent from '../../components/buttonGeneric/button.component';
 
