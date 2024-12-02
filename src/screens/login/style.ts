@@ -1,0 +1,27 @@
+import {StyleSheet} from 'react-native';
+import {
+  primaryColor,
+  height,
+  width,
+} from '../../utils/constants/style.constants';
+
+const styles = StyleSheet.create({
+  container: {
+    flexGrow: 1,
+    width: width * 1,
+    height: height * 0.8,
+    backgroundColor: primaryColor,
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: height * 0.05,
+    paddingTop: height * 0.04
+  },
+  title: {
+    alignSelf: 'flex-start',
+    marginLeft: width * 0.1,
+    fontSize: height * 0.025,
+    color: 'white',
+  },
+});
+
+export default styles;

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Router from './src/navigation/router.navigation';
+import Router from './src/navigation/public/router.navigation';
 
 const App = () => {
   return <Router />

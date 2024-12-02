@@ -1,9 +1,10 @@
 import {Text, View} from 'react-native';
+import styles from './styles';
 
 const SignUpScreen = () => {
   return (
-    <View>
-      <Text>Hola desde Sign Up</Text>
+    <View style={styles.container}>
+      
     </View>
   );
 };
