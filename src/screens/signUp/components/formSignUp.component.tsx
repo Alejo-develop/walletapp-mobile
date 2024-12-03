@@ -5,8 +5,9 @@ import {
   secondaryColor,
   width,
 } from '../../../utils/constants/style.constants';
+import { FormAuthComponentProps } from '../../../interfaces/auth.interface';
 
-const FormSignUpComponent = () => {
+const FormSignUpComponent = ({handleFormChange}: FormAuthComponentProps) => {
   return (
     <View style={styles.container}>
       <View style={styles.containerInputs}>
@@ -14,6 +15,7 @@ const FormSignUpComponent = () => {
         <InputComponent
           placeholder="Enter your email..."
           entry={false}
+          onChangeText={text => handleFormChange('email', text)}
         />
       </View>
 
@@ -22,7 +24,7 @@ const FormSignUpComponent = () => {
         <InputComponent
           placeholder="Enter your password..."
           entry={true}
-          
+          onChangeText={text => handleFormChange('password', text)}
         />
       </View>
 
@@ -31,7 +33,7 @@ const FormSignUpComponent = () => {
         <InputComponent
           placeholder="Repeat your password..."
           entry={true}
-          
+          onChangeText={text => handleFormChange('repeatPassword', text)}
         />
       </View>
     </View>

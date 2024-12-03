@@ -5,8 +5,9 @@ import {
   secondaryColor,
   width,
 } from '../../../utils/constants/style.constants';
+import { FormAuthComponentProps } from '../../../interfaces/auth.interface';
 
-const FormLoginComponent = () => {
+const FormLoginComponent = ({handleFormChange}: FormAuthComponentProps) => {
   return (
     <View style={styles.container}>
       <View style={styles.containerInputs}>
@@ -14,6 +15,7 @@ const FormLoginComponent = () => {
         <InputComponent
           placeholder="Enter your email..."
           entry={false}
+          onChangeText={text => handleFormChange('email', text)}
         />
       </View>
 
@@ -22,7 +24,7 @@ const FormLoginComponent = () => {
         <InputComponent
           placeholder="Enter your password..."
           entry={true}
-          
+          onChangeText={text => handleFormChange('password', text)}
         />
         <TouchableOpacity style={styles.forgotYourPassworButton}>
           <Text style={styles.textButton}>

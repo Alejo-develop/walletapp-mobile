@@ -19,6 +19,7 @@ const PublicTabs = () => (
       tabBarLabelStyle: styles.tabBarLabelStyle,
       tabBarItemStyle: styles.tabBarItemStyle,
       headerShown: false,
+      
     })}>
     <Tab.Screen name="login" component={LoginScreen} />
     <Tab.Screen name="signup" component={SignUpScreen} />
