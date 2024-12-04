@@ -1,4 +1,4 @@
-import {createContext, useState} from 'react';
+import {createContext, useContext, useState} from 'react';
 import {
   AuthContextProps,
   AuthProviderProps,
@@ -23,6 +23,7 @@ export const AuthProvider = ({children}: AuthProviderProps) => {
     setIsAuth(true);
     setIdUser(id);
     await AsyncStorage.setItem('accesstoken', token);
+    console.log('session guardada');
 
     return;
   };
@@ -66,6 +67,8 @@ export const AuthProvider = ({children}: AuthProviderProps) => {
     <AuthContext.Provider
       value={{getInfoUser, isAuth, saveSessionInfo, signOut}}>
       {children}
-    </AuthContext.Provider>
+    </AuthContext.Provider> 
   );
 };
+
+export const useAuth = () => useContext(AuthContext);

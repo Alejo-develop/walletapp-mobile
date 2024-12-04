@@ -2,6 +2,7 @@ import {useState} from 'react';
 import {AuthInterface, LoginResponse} from '../interfaces/auth.interface';
 import {loginService} from '../services/auth.services';
 import {ErrorResponse} from '../interfaces/error.interface';
+import { useAuth } from '../contexts/auth.context';
 
 const LoginHook = () => {
   const [form, setForm] = useState<AuthInterface>({
@@ -11,6 +12,8 @@ const LoginHook = () => {
   const [error, setError] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(false);
 
+  const auth = useAuth()
+
   const handleFormChange = (field: keyof AuthInterface, value: string) => {
     setForm(prevForm => ({
       ...prevForm,
@@ -19,6 +22,7 @@ const LoginHook = () => {
   };
 
   const login = async ({email, password}: AuthInterface) => {
+    setError('')
     if (!email && !password) {
       setError('All Inputs is required');
       return;
@@ -29,7 +33,7 @@ const LoginHook = () => {
       const res = await loginService({email, password});
 
       const {id, token} = res.data as LoginResponse;
-      console.log(id, token);
+      await auth.saveSessionInfo(id, token)
       
       setLoading(false);
     } catch (err: any) {

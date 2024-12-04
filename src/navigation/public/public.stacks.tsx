@@ -5,7 +5,7 @@ import PublicTabs from './tab.navigation';
 
 const Stack = createNativeStackNavigator();
 
-const Stacks = () => {
+const PublicStacks = () => {
   return (
     <Stack.Navigator initialRouteName="main">
       <Stack.Screen
@@ -27,4 +27,4 @@ const Stacks = () => {
   );
 };
 
-export default Stacks
+export default PublicStacks
