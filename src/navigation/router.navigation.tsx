@@ -1,5 +1,5 @@
 import {NavigationContainer} from '@react-navigation/native';
-import Stacks from './stacks';
+import Stacks from './public/public.stacks';
 
 const Router = () => {
   return (

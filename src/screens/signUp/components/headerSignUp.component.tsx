@@ -24,9 +24,6 @@ const styles = StyleSheet.create({
     left: width * 0.1,
     fontSize: height * 0.02,
   },
-  buttonsNav: {
-    flexDirection: 'row',
-  },
   title: {
     alignSelf: 'flex-start',
     marginLeft: width * 0.1,
