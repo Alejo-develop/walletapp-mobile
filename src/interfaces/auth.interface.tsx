@@ -6,6 +6,7 @@ export interface FormAuthComponentProps {
 
 export interface LoginResponse {
   id: string;
+  name: string;
   token: string;
 }
 
@@ -22,6 +23,8 @@ export interface AuthProviderProps {
 export interface AuthContextProps {
   isAuth: boolean;
   signOut: () => Promise<void>;
-  saveSessionInfo: (id: string, token: string) => Promise<void>;
-  getInfoUser: () => Promise<UserResponseInterface | null>
+  saveSessionInfo: (id: string, token: string, name: string) => Promise<void>;
+  getInfoUser: () => Promise<UserResponseInterface | null | undefined | any>
+  userInfo: UserResponseInterface | null,
+  name: string | null
 }

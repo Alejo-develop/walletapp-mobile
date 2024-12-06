@@ -6,7 +6,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 export const loginService = async (user: AuthInterface) => {
   try {
     const res = await axios.post(`${apiUrl}/auth/login`, user);
-
+    
     return res;
   } catch (err) {
     console.log(err);

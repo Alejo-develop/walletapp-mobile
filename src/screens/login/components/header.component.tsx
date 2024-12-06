@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     position: 'relative',
     bottom: height * 0.145,
     left: width * 0.1,
-    fontSize: height * 0.02
+    fontSize: height * 0.02,
   },
   buttonsNav: {
     flexDirection: 'row',

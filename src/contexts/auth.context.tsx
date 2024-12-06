@@ -11,17 +11,21 @@ const AuthContext = createContext<AuthContextProps>({
   isAuth: false,
   signOut: async () => {},
   saveSessionInfo: async () => {},
-  getInfoUser: async () => null,
+  getInfoUser: async () => Promise.resolve(null),
+  userInfo: null,
+  name: null
 });
 
 export const AuthProvider = ({children}: AuthProviderProps) => {
   const [idUser, setIdUser] = useState<string>('');
+  const [name, setName] = useState<string>('');
   const [isAuth, setIsAuth] = useState<boolean>(false);
   const [userInfo, setUserInfo] = useState<UserResponseInterface | any>();
 
-  const saveSessionInfo = async (id: string, token: string) => {
+  const saveSessionInfo = async (id: string, token: string, name: string) => {
     setIsAuth(true);
     setIdUser(id);
+    setName(name)
     await AsyncStorage.setItem('accesstoken', token);
     console.log('session guardada');
 
@@ -57,15 +61,17 @@ export const AuthProvider = ({children}: AuthProviderProps) => {
   };
 
   const getInfoUser = async () => {
-    const user = await fetchInfouser();
+    const user = await fetchInfouser()
+    console.log(user);
+    
 
     setUserInfo(user);
-    return userInfo;
+    return user;
   };
 
   return (
     <AuthContext.Provider
-      value={{getInfoUser, isAuth, saveSessionInfo, signOut}}>
+      value={{getInfoUser, isAuth, saveSessionInfo, signOut, userInfo, name}}>
       {children}
     </AuthContext.Provider> 
   );

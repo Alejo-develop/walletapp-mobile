@@ -27,13 +27,15 @@ const LoginHook = () => {
       setError('All Inputs is required');
       return;
     }
+    console.log(email, password);
+    
     
     setLoading(true);
     try {
       const res = await loginService({email, password});
 
-      const {id, token} = res.data as LoginResponse;
-      await auth.saveSessionInfo(id, token)
+      const {id, name, token} = res.data as LoginResponse;
+      await auth.saveSessionInfo(id, token, name)
       
       setLoading(false);
     } catch (err: any) {
