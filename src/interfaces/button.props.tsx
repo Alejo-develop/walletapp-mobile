@@ -4,6 +4,6 @@ export interface ButtonProps{
 }
 
 export interface ButtonIconProps{
-    color: string;
-    type: string
+    name: string;
+    text: string;
 }

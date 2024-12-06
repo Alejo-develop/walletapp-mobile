@@ -11,9 +11,9 @@ const WalletInfo = () => {
       </View>
 
       <View style={styles.containerButtonsActions}>
-        <ButtonIconComponent />
+        <ButtonIconComponent name='usd' text='New transaction' />
 
-        <ButtonIconComponent />
+        <ButtonIconComponent name='credit-card-alt' text='See your wallet ' />
       </View>
     </View>
   );

@@ -8,6 +8,7 @@ import {
 
 const styles = StyleSheet.create({
   container: {
+    paddingTop: 15,
     width: width * 1,
     height: height * 1,
     backgroundColor: primaryColor,
@@ -17,7 +18,7 @@ const styles = StyleSheet.create({
     height: height * 0.3,
     justifyContent: 'center',
     alignItems: 'center',
-    gap: height * 0.05
+    gap: height * 0.035
   },
   money: {
     color: secondaryColor,
@@ -34,7 +35,7 @@ const styles = StyleSheet.create({
     paddingTop: 22,
     flexDirection: 'row',
     justifyContent: 'center',
-    gap: width * 0.25
+    gap: width * 0.15
   }
 });
 

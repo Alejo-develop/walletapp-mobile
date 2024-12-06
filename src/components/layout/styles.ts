@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     color: secondaryColor,
   },
   children: {
-    height: height * 1
+    height: height * 0.83,
   }
 });
 
