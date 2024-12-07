@@ -13,8 +13,11 @@ const AuthContext = createContext<AuthContextProps>({
   saveSessionInfo: async () => {},
   getInfoUser: async () => Promise.resolve(null),
   userInfo: null,
-  name: null
-});
+  name: null,
+  idUser: null,
+  getToken: async () => null,
+  getId: () => null
+}); 
 
 export const AuthProvider = ({children}: AuthProviderProps) => {
   const [idUser, setIdUser] = useState<string>('');
@@ -71,7 +74,7 @@ export const AuthProvider = ({children}: AuthProviderProps) => {
 
   return (
     <AuthContext.Provider
-      value={{getInfoUser, isAuth, saveSessionInfo, signOut, userInfo, name}}>
+      value={{getInfoUser, getId, getToken, idUser, isAuth, saveSessionInfo, signOut, userInfo, name}}>
       {children}
     </AuthContext.Provider> 
   );

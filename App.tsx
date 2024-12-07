@@ -4,10 +4,10 @@ import {AuthProvider} from './src/contexts/auth.context';
 
 const App = () => {
   return (
-    <AuthProvider>
+    <AuthProvider>   
       <Router />
     </AuthProvider>
-  );
+  ); 
 };
 
 export default App;

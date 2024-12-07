@@ -26,5 +26,8 @@ export interface AuthContextProps {
   saveSessionInfo: (id: string, token: string, name: string) => Promise<void>;
   getInfoUser: () => Promise<UserResponseInterface | null | undefined | any>
   userInfo: UserResponseInterface | null,
-  name: string | null
+  name: string | null,
+  idUser: string | null,
+  getToken: () => Promise<string | null>
+  getId: () => string | null
 }

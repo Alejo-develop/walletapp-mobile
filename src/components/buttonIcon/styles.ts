@@ -1,5 +1,5 @@
 import {Button, StyleSheet} from 'react-native';
-import { secondaryColor, terceryColor, width } from '../../utils/constants/style.constants';
+import { fourthyCorlor, secondaryColor, terceryColor, width } from '../../utils/constants/style.constants';
 
 const styles = StyleSheet.create({
   container:{
@@ -8,13 +8,13 @@ const styles = StyleSheet.create({
   },
     containerButton: {
     alignItems: 'center',
-    width: width * 0.2,
+    width: width * 0.17,
     backgroundColor: terceryColor,
     borderRadius: 12
   },
   textButton: {
     textAlign: 'center',
-    color: secondaryColor
+    color: fourthyCorlor
   },
   icon: {
     padding: 15,

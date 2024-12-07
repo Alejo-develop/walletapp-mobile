@@ -1,13 +1,14 @@
 import {Text, View} from 'react-native';
 import styles from '../style';
 import ButtonIconComponent from '../../../components/buttonIcon/buttonIcon.component';
+import { WalletResponse } from '../../../interfaces/wallet.interface';
 
-const WalletInfo = () => {
+const WalletInfo = ({salary, expenditures}: WalletResponse) => {
   return (
     <View style={styles.containerMoney}>
       <View>
-        <Text style={styles.money}>$3000000</Text>
-        <Text style={styles.subtract}>-$3000</Text>
+        <Text style={styles.money}>${salary}</Text>
+        <Text style={styles.subtract}>{expenditures ? `-${expenditures}` : 'you have not spent anything yet'}</Text>
       </View>
 
       <View style={styles.containerButtonsActions}>

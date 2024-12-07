@@ -7,3 +7,9 @@ export interface ButtonIconProps{
     name: string;
     text: string;
 }
+
+export interface ButtonCategoryProps{
+    title: string;
+    icon: string;
+    cost: string
+}

@@ -1,6 +1,6 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import { Text, View, StyleSheet } from 'react-native';
-import { height, secondaryColor, terceryColor, width } from '../../utils/constants/style.constants';
+import { View, StyleSheet } from 'react-native';
+import { height, primaryColor, secondaryColor, width } from '../../utils/constants/style.constants';
 import HomeScreen from '../../screens/home/home.screen';
 import TransactionsScreen from '../../screens/transactions/transactions.screen';
 import PercentagesScreen from '../../screens/percentages/percentages.screen';
@@ -34,13 +34,13 @@ const PrivateTabs = () => (
 const styles = StyleSheet.create({
   tabBarStyle: {
     position: 'absolute',
-    backgroundColor: terceryColor,
+    backgroundColor: primaryColor,
     borderTopColor: '#151515',
     width: width * 0.6, 
     height: 55,
     alignSelf: 'center',
     bottom: 19, 
-    left: width * 0.21,
+    left: width * 0.2,
     borderRadius: 12
   },
   tabBarLabelStyle: {
