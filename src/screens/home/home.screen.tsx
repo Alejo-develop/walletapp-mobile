@@ -13,7 +13,7 @@ const HomeScreen = () => {
   useFocusEffect(
     useCallback(() => {
       fetchWallet();
-      fetchBudgets()
+      fetchBudgets()  
     }, []),
   );
 
