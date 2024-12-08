@@ -10,7 +10,7 @@ const ButtonIconComponent = ({name, text}: ButtonIconProps) => {
       <TouchableOpacity style={styles.containerButton}>
         <Icon
           name={`${name}`}
-          color={secondaryColor}
+          color={'white'}
           size={width * 0.06}
           style={styles.icon}
         />

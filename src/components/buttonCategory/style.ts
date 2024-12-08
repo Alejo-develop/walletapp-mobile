@@ -11,14 +11,14 @@ const styles = StyleSheet.create({
     gap: 4
   },
   icon: {
-    color: secondaryColor,
+    color: 'white',
     fontSize: height * 0.04,
     backgroundColor: primaryColor,
     padding: 12,
     borderRadius: 12
   },
   title: {
-    color: secondaryColor
+    color: 'white'
   },
   budget: {
     color: fourthyCorlor

@@ -4,23 +4,29 @@ import {useAuth} from '../contexts/auth.context';
 import {findWalletByIdService} from '../services/wallet.services';
 import {GetBudgetsServices} from '../services/budget.services';
 import {BudgetResponse} from '../interfaces/budgets.interface';
-import { FindCantegorysServices } from '../services/category.services';
+import {FindCantegorysServices} from '../services/category.services';
+import {CategoryResponse} from '../interfaces/categorys.interface';
 
 const HomeHook = () => {
   const auth = useAuth();
   const [walletInfo, setWalletInfo] = useState<WalletResponse | null>(null);
-  const [budgets, setBudgets] = useState<BudgetResponse[] | null>(null)
-  const [budgetId, setBudgetId] = useState<string |null>(null)
+  const [budgets, setBudgets] = useState<BudgetResponse[] | null>(null);
+  const [categorys, setCategorys] = useState<CategoryResponse[] | null>(null);
+  const [budgetId, setBudgetId] = useState<string | null>(null);
+  const [walletError, setWalletError] = useState<boolean>(true)
 
   const fetchWallet = async () => {
     const userId = auth.getId();
     const token = await auth.getToken();
+
     try {
       const wallet = await findWalletByIdService(userId, token);
+
       setWalletInfo(wallet);
       return wallet;
     } catch (err) {
-      console.log(err); 
+      setWalletError(false)
+      console.log(err);
     }
   };
 
@@ -40,21 +46,24 @@ const HomeHook = () => {
     const userId = auth.getId();
     const token = await auth.getToken();
     try {
-      const categorys = await FindCantegorysServices(userId, budgetId, token);
-      setBudgets(categorys);
+      const categorys = await FindCantegorysServices(userId, budgetId, token);  
+      setCategorys(categorys);
       return categorys;
     } catch (err) {
       console.log(err);
-    }
+    } 
   };
 
   return {
-    fetchWallet,
+    categorys,
     walletInfo,
-    fetchBudgets,
+    budgetId,
     budgets,
+    walletError,
+    fetchWallet,
+    fetchBudgets,
     fetchCategorys,
-    setBudgetId
+    setBudgetId,
   };
 };
 

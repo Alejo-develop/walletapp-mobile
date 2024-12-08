@@ -1,20 +1,31 @@
 import {Text, View} from 'react-native';
 import styles from '../style';
 import ButtonIconComponent from '../../../components/buttonIcon/buttonIcon.component';
-import { WalletResponse } from '../../../interfaces/wallet.interface';
+import {walletInfoComponent} from '../../../interfaces/home.interface';
 
-const WalletInfo = ({salary, expenditures}: WalletResponse) => {
+const WalletInfo = ({data, walletError}: walletInfoComponent) => {
   return (
     <View style={styles.containerMoney}>
       <View>
-        <Text style={styles.money}>${salary}</Text>
-        <Text style={styles.subtract}>{expenditures ? `-${expenditures}` : 'you have not spent anything yet'}</Text>
+        <Text style={data?.salary ? styles.money : styles.dontMoney}>
+          {data?.salary ? `$${data?.salary}` : `You don't have money `}
+        </Text>
+        <Text style={styles.subtract}>
+          {data?.expenditures
+            ? `-$${data?.expenditures}`
+            : 'you have not spent anything yet'}
+        </Text>
       </View>
 
       <View style={styles.containerButtonsActions}>
-        <ButtonIconComponent name='usd' text='New transaction' />
+        {walletError && (
+          <ButtonIconComponent name="usd" text="New transaction" />
+        )}
 
-        <ButtonIconComponent name='credit-card-alt' text='See your wallet ' />
+        <ButtonIconComponent
+          name="credit-card-alt"
+          text={walletError ? 'See your wallet' : 'Create wallet'}
+        />
       </View>
     </View>
   );

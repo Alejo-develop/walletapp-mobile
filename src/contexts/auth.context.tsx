@@ -65,8 +65,6 @@ export const AuthProvider = ({children}: AuthProviderProps) => {
 
   const getInfoUser = async () => {
     const user = await fetchInfouser()
-    console.log(user);
-    
 
     setUserInfo(user);
     return user;

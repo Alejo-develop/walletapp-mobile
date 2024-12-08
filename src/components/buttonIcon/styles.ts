@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
   },
   textButton: {
     textAlign: 'center',
-    color: fourthyCorlor
+    color: 'white'
   },
   icon: {
     padding: 15,

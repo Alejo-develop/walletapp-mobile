@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     gap: height * 0.015
   },
   money: {
-    color: secondaryColor,
+    color: 'white',
     fontSize: height * 0.045,
     fontWeight: '700',
   },
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
     marginTop: height * 0.02,
     fontSize: height * 0.023,
     fontWeight: '900',
-    color: secondaryColor
+    color: fourthyCorlor
   },
   containerCategorys: {
     width: width * 1, 
@@ -73,6 +73,9 @@ const styles = StyleSheet.create({
   item:{
     margin: 5,
     width: width * 0.3
+  },
+  dontMoney: {
+    textAlign: 'center'
   }
 });
 

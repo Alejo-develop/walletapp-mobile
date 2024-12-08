@@ -1,45 +1,35 @@
 import {Text, View, FlatList} from 'react-native';
 import styles from '../style';
 import ButtonCategoryComponent from '../../../components/buttonCategory/buttonCategory.component';
+import React from 'react';
+import { CategoryContainerComponent } from '../../../interfaces/home.interface';
 
-const data = [
-  {id: '1', icon: 'home', title: 'House', cost: '1500'},
-  {id: '2', icon: 'car', title: 'Car', cost: '800'},
-  {id: '3', icon: 'home', title: 'Food', cost: '500'},
-  {id: '4', icon: 'home', title: 'Health', cost: '200'},
-  {id: '5', icon: 'home', title: 'Health', cost: '200'},
-  {id: '6', icon: 'home', title: 'Health', cost: '200'},
-  {id: '7', icon: 'home', title: 'Health', cost: '200'},
-  {id: '8', icon: 'home', title: 'Health', cost: '200'},
-  {id: '9', icon: 'home', title: 'Health', cost: '200'},
-  {id: '10', icon: 'home', title: 'Health', cost: '200'},
-  {id: '11', icon: 'home', title: 'Health', cost: '200'},
-  {id: '12', icon: 'home', title: 'Health', cost: '200'},
-  {id: '13', icon: 'home', title: 'Health', cost: '200'},
-];
-
-const CategoryContainerComponents = () => {
+const CategoryContainerComponents = ({data}: CategoryContainerComponent) => {
   return (
     <View style={styles.containerSectionCategory}>
       <Text style={styles.titleCategorys}>Categorys</Text>
 
       <View style={styles.containerCategorys}>
-        <FlatList
+        {data && data.length > 0 ? (
+          <FlatList
           contentContainerStyle={styles.list}
           data={data}
           keyExtractor={item => item.id}
           renderItem={({item}) => (
             <View style={styles.item}>
               <ButtonCategoryComponent
-                icon={item.icon}
-                title={item.title}
-                cost={item.cost}
+                icon={item.url_icon}
+                title={item.name}
+                cost={item.budget_for_category}
               />
             </View>
           )}
           numColumns={3}
           scrollEnabled={true}
         />
+        ): (
+          <Text>No categories available.</Text>
+        )}
       </View>
     </View>
   );

@@ -5,30 +5,46 @@ import BudgetSelectComponent from './components/budgetSelect.component';
 import CategoryContainerComponents from './components/categorysContainer.component';
 import HomeHook from '../../hooks/home.hook';
 import {useFocusEffect} from '@react-navigation/native';
-import {useCallback} from 'react';
+import {useCallback, useEffect} from 'react';
 
 const HomeScreen = () => {
-  const {walletInfo, fetchWallet, budgets, fetchBudgets} = HomeHook();
+  const {
+    walletInfo,
+    categorys,
+    budgets,
+    budgetId,
+    walletError, 
+    fetchWallet,
+    fetchBudgets,
+    fetchCategorys,
+    setBudgetId,
+  } = HomeHook();
 
-  useFocusEffect(
+  useEffect(() => {
+    if (budgetId) {
+      fetchCategorys();
+    }
+  }, [budgetId]);
+
+  useFocusEffect( 
     useCallback(() => {
       fetchWallet();
-      fetchBudgets()  
-    }, []),
+      fetchBudgets(); 
+    }, []), 
   );
 
   return (
     <View style={styles.container}>
       <WalletInfo
-        salary={walletInfo?.salary}
-        expenditures={walletInfo?.expenditures}
+        data={walletInfo}
+        walletError={walletError}
       />
 
-      <BudgetSelectComponent data={budgets} />
+      <BudgetSelectComponent data={budgets} setBudgetID={setBudgetId} />
 
-      <CategoryContainerComponents />
+      <CategoryContainerComponents data={categorys}/>
     </View>
   );
 };
 
-export default HomeScreen;
+export default HomeScreen; 

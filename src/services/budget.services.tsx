@@ -1,7 +1,10 @@
 import axios from 'axios';
 import {apiUrl} from '../utils/constants/apiUrl.constants';
 
-export const GetBudgetsServices = async (userId: string | null, token: string | null) => {
+export const GetBudgetsServices = async (
+  userId: string | null,
+  token: string | null,
+) => {
   try {
     const budgets = await axios.get(`${apiUrl}/budget/budgetsuser/${userId}`, {
       headers: {
@@ -9,7 +12,7 @@ export const GetBudgetsServices = async (userId: string | null, token: string | 
       },
     });
 
-    return budgets.data
+    return budgets.data;
   } catch (err) {
     throw err;
   }

@@ -8,7 +8,7 @@ export const FindCantegorysServices = async (
 ) => {
   try {
     const categorys = await axios.get(
-      `${apiUrl}/budget/budgetsuser/${userId}/${budgetId}`,
+      `${apiUrl}/categorys/${budgetId}/${userId}`,
       {
         headers: {
           Authorization: `Bearer ${token}`,

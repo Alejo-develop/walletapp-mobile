@@ -1,7 +1,7 @@
 export interface WalletResponse {
   id?: string;
-  userID?: string;
-  salary?: number;
+  userID?: string | null;
+  salary?: number | null;
   cardName?: string | null;
   cardNumber?: string | null;
   expirationDate?: string | null;
