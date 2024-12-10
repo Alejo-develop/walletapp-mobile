@@ -28,7 +28,7 @@ const CreditCardComponent = ({walletError, wallet, handleFormChange}: CreditCard
             placeholder={
               walletError && wallet?.cardName != null
                 ? `${wallet?.cardName}`
-                : `N/A...`
+                : `Enter card name...`
             }
             onChangeText={text => handleFormChange('cardName', text)}
           />
@@ -39,7 +39,7 @@ const CreditCardComponent = ({walletError, wallet, handleFormChange}: CreditCard
             placeholder={
               walletError && wallet?.expirationDate != null
                 ? `${wallet?.expirationDate}`
-                : `N/A...`
+                : `Exp date...`
             }
             onChangeText={text => handleFormChange('expirationDate', text)}
           />

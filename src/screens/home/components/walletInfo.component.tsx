@@ -5,7 +5,7 @@ import {walletInfoComponent} from '../../../interfaces/home.interface';
 import SeeOrCreateModal from '../../../components/seeOrCreateWallet/seeOrCreateWalletModal.component';
 import WalletModalHook from '../../../hooks/modals/walletModal.hook';
 
-const WalletInfo = ({data, walletError}: walletInfoComponent) => {
+const WalletInfo = ({data, walletError, setNewWallet}: walletInfoComponent) => {
   const {
     walletForm,
     visibleWalletModal,
@@ -51,6 +51,7 @@ const WalletInfo = ({data, walletError}: walletInfoComponent) => {
         setWalletForm={setWalletForm}
         handleEdit={handleEdit}
         handleSubmit={handleSubmit}
+        setNewWallet={setNewWallet}
       />
     </View>
   );

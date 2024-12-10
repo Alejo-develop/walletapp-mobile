@@ -13,5 +13,6 @@ export interface CategoryContainerComponent {
 
 export interface walletInfoComponent{
   data: WalletResponse | null,
-  walletError: boolean
+  walletError: boolean,
+  setNewWallet: React.Dispatch<React.SetStateAction<boolean>>;
 } 

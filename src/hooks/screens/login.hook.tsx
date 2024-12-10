@@ -1,19 +1,18 @@
 import {useState} from 'react';
-import {AuthInterface} from '../interfaces/auth.interface';
-import {signUpService} from '../services/auth.services';
-import {ErrorResponse} from '../interfaces/error.interface';
-import { useNavigation } from '@react-navigation/native';
-import { RootStackPublicParamList } from '../interfaces/navigation.type';
+import {AuthInterface, LoginResponse} from '../../interfaces/auth.interface';
+import {loginService} from '../../services/auth.services';
+import {ErrorResponse} from '../../interfaces/error.interface';
+import { useAuth } from '../../contexts/auth.context';
 
-const SignUpHook = () => {
+const LoginHook = () => {
   const [form, setForm] = useState<AuthInterface>({
     email: '',
     password: '',
-    repeatPassword: '',
   });
   const [error, setError] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(false);
-  const goTo = useNavigation<RootStackPublicParamList>();
+
+  const auth = useAuth()
 
   const handleFormChange = (field: keyof AuthInterface, value: string) => {
     setForm(prevForm => ({
@@ -22,23 +21,23 @@ const SignUpHook = () => {
     }));
   };
 
-  const signUp = async ({email, password, repeatPassword}: AuthInterface) => {
-    if (!email && !password && !repeatPassword) {
+  const login = async ({email, password}: AuthInterface) => {
+    setError('')
+    if (!email && !password) {
       setError('All Inputs is required');
       return;
     }
-
-    if (password !== repeatPassword) {
-      setError('The passwords must be the same');
-      return;
-    }
-
+    console.log(email, password);
+    
+    
     setLoading(true);
     try {
-      await signUpService({email, password});
+      const res = await loginService({email, password});
 
+      const {id, name, token} = res.data as LoginResponse;
+      await auth.saveSessionInfo(id, token, name)
+      
       setLoading(false);
-      goTo.navigate('login')
     } catch (err: any) {
       const apiError = err.response?.data as ErrorResponse;
       if (apiError?.message) {
@@ -56,8 +55,8 @@ const SignUpHook = () => {
     form,
     error,
     loading,
-    signUp,
+    login,
   };
 };
 
-export default SignUpHook
+export default LoginHook;

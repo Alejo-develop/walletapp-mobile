@@ -3,6 +3,8 @@ import {WalletModal} from '../../interfaces/modal.interface';
 import styles from './style';
 import CreditCardComponent from './components/creditCard.component';
 import ButtonComponent from '../buttonGeneric/button.component';
+import { height, secondaryColor } from '../../utils/constants/style.constants';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const SeeOrCreateModal = ({
   visible,
@@ -12,7 +14,8 @@ const SeeOrCreateModal = ({
   walletForm,
   handleEdit,
   handleFormChange,
-  handleSubmit
+  handleSubmit,
+  setNewWallet,
 }: WalletModal) => {
   return (
     <Modal
@@ -24,13 +27,17 @@ const SeeOrCreateModal = ({
         <View style={styles.modal}>
           <View style={styles.headerModal}>
             <TouchableOpacity onPress={onClose}>
-              <Text>cerrar</Text>
+              <Icon name='arrow-left' style={{color: 'white', fontSize: height * 0.025}}/>
             </TouchableOpacity>
 
             <Text style={styles.title}>Wallet</Text>
           </View>
 
-          <CreditCardComponent walletError={walletError} wallet={wallet} handleFormChange={handleFormChange} />
+          <CreditCardComponent
+            walletError={walletError}
+            wallet={wallet}
+            handleFormChange={handleFormChange}
+          />
 
           <View style={styles.cointainerInfoWallet}>
             <View style={styles.containerMoneyDetails}>
@@ -40,14 +47,20 @@ const SeeOrCreateModal = ({
                   placeholder={
                     walletError ? `$${wallet?.salary}` : `Add salary...`
                   }
-                  style={styles.bigCashInfoWallet}
+                  style={[styles.bigCashInfoWallet , {
+                    height: 40,
+                  }]}
+                  placeholderTextColor={secondaryColor}
+                  keyboardType="decimal-pad"
                   onChangeText={text => handleFormChange('salary', text)}
                 />
               </View>
               <View style={styles.containerDetail}>
                 <Text style={styles.littleTitleInfoWallet}>Expenditures</Text>
                 <Text style={styles.litleCashInfoWallet}>
-                  {walletError ? `-$${wallet?.expenditures}` : `N/A`}
+                  {walletError && wallet?.expenditures !== null
+                    ? `-$${wallet?.expenditures}`
+                    : `have not spent anything yet`}
                 </Text>
               </View>
               <View style={styles.containerDetail}>
@@ -59,6 +72,8 @@ const SeeOrCreateModal = ({
                       ? `$${wallet?.extraCash}`
                       : `Add money extra...`
                   }
+                  placeholderTextColor={secondaryColor}
+                  keyboardType="decimal-pad"
                   onChangeText={text => handleFormChange('extraCash', text)}
                 />
               </View>
@@ -74,7 +89,7 @@ const SeeOrCreateModal = ({
                 <Text style={styles.littleTitleInfoWallet}>Pay date</Text>
                 <TextInput
                   placeholder={
-                    walletError
+                    walletError && wallet?.payDay !== null
                       ? `${wallet?.payDay} Moth after Moth`
                       : `exp 24 of this month`
                   }
@@ -86,7 +101,12 @@ const SeeOrCreateModal = ({
           </View>
 
           <ButtonComponent
-            text={walletError ? `Save Changes` : 'Create Wallet'} onPress={walletError ? () => handleEdit(walletForm) : () => handleSubmit(walletForm)}
+            text={walletError ? `Save Changes` : 'Create Wallet'}
+            onPress={
+              walletError
+                ? () => handleEdit(wallet?.id, walletForm, setNewWallet)
+                : () => handleSubmit(walletForm, setNewWallet)
+            }
           />
         </View>
       </View>

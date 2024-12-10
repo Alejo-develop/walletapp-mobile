@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction } from 'react';
+import {Dispatch, SetStateAction} from 'react';
 import {WalletInterface, WalletResponse} from './wallet.interface';
 
 export interface WalletModal {
@@ -7,10 +7,15 @@ export interface WalletModal {
   wallet?: WalletResponse | null;
   walletError: boolean;
   walletForm: WalletResponse | null;
-  setWalletForm: Dispatch<SetStateAction<WalletResponse>>
+  setWalletForm: Dispatch<SetStateAction<WalletResponse>>;
   handleFormChange: (field: keyof WalletResponse, value: string) => void;
-  handleEdit: (wallet: WalletInterface | null) => Promise<void>;
-  handleSubmit: (wallet: WalletInterface | null) => Promise<void>;
+  handleEdit: (
+    id: string | undefined,
+    wallet: WalletInterface | null,
+    setNewWallet: Dispatch<SetStateAction<boolean>>,
+  ) => Promise<void>;
+  handleSubmit: (wallet: WalletInterface | null, setNewWallet: Dispatch<SetStateAction<boolean>>) => Promise<void>;
+  setNewWallet: Dispatch<SetStateAction<boolean>>;
 }
 
 export interface CreditCardProps {

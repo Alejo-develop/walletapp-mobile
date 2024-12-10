@@ -3,7 +3,7 @@ import styles from './styles';
 import ButtonComponent from '../../components/buttonGeneric/button.component';
 import HeaderSignUpComponent from './components/headerSignUp.component';
 import FormSignUpComponent from './components/formSignUp.component';
-import SignUpHook from '../../hooks/signUp.hook';
+import SignUpHook from '../../hooks/screens/signUp.hook';
 import { secondaryColor } from '../../utils/constants/style.constants';
 
 const SignUpScreen = () => {

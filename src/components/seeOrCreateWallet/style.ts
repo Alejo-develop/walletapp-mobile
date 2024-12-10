@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     width: width * 1,
     height: height * 0.07,
     alignItems: 'center',
-    gap: width * 0.263,
+    gap: width * 0.297,
     marginLeft: width * 0.1,
   },
   title: {
@@ -73,8 +73,8 @@ const styles = StyleSheet.create({
     paddingTop: height * 0.005,
   },
   inputCardNumber: {
-    paddingLeft: width * 0.065,
     fontSize: height * 0.03,
+    paddingLeft: width * 0.065,
   },
   inputCardName: {
     paddingLeft: width * 0.065,
@@ -102,12 +102,12 @@ const styles = StyleSheet.create({
     height: height * 0.26,
     width: width * 0.0,
     alignItems: 'center',
-    gap: height * 0.02
+    gap: height * 0.006
   },
   containerTotalDetails: {
     flex: 1,
     alignItems: 'center',
-    gap: height * 0.078 
+    gap: height * 0.079 
   },
   containerDetail: {
     alignItems: 'center'
@@ -120,6 +120,7 @@ const styles = StyleSheet.create({
   },
   bigCashInfoWallet: {
     color: secondaryColor,
+    fontSize: height * 0.02,
   },
   littleTitleInfoWallet: {
     color: 'white',
@@ -128,7 +129,9 @@ const styles = StyleSheet.create({
   },
   litleCashInfoWallet: {
     color: secondaryColor,
-    textAlign: 'center'
+    textAlign: 'center',
+    width: width * 0.37,
+    height: height * 0.04
   },
 
 });

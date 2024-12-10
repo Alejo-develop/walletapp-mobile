@@ -27,6 +27,7 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: height * 0.045,
     fontWeight: '700',
+    textAlign: 'center'
   },
   subtract: {
     color: fourthyCorlor,
