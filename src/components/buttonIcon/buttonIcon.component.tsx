@@ -1,13 +1,13 @@
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {Text, TouchableOpacity, View} from 'react-native';
-import {secondaryColor, width} from '../../utils/constants/style.constants';
+import {width} from '../../utils/constants/style.constants';
 import {ButtonIconProps} from '../../interfaces/button.props';
 import styles from './styles';
 
-const ButtonIconComponent = ({name, text}: ButtonIconProps) => {
+const ButtonIconComponent = ({name, text, onPress}: ButtonIconProps) => {
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.containerButton}>
+      <TouchableOpacity style={styles.containerButton} onPress={onPress}>
         <Icon
           name={`${name}`}
           color={'white'}

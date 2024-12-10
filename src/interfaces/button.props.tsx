@@ -4,12 +4,14 @@ export interface ButtonProps{
 }
 
 export interface ButtonIconProps{
-    name: string;
+    name?: string;
     text: string;
+    onPress?: () => void;
 }
 
 export interface ButtonCategoryProps{
     title: string;
     icon: string;
-    cost: string
+    cost: string;
+    onPress?: () => void;
 }

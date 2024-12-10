@@ -2,13 +2,25 @@ import {Text, View} from 'react-native';
 import styles from '../style';
 import ButtonIconComponent from '../../../components/buttonIcon/buttonIcon.component';
 import {walletInfoComponent} from '../../../interfaces/home.interface';
+import SeeOrCreateModal from '../../../components/seeOrCreateWallet/seeOrCreateWalletModal.component';
+import WalletModalHook from '../../../hooks/modals/walletModal.hook';
 
 const WalletInfo = ({data, walletError}: walletInfoComponent) => {
+  const {
+    walletForm,
+    visibleWalletModal,
+    setCloseWalletModal,
+    setWalletForm,
+    handleFormChange,
+    handleEdit,
+    handleSubmit,
+  } = WalletModalHook();
+
   return (
     <View style={styles.containerMoney}>
       <View>
-        <Text style={data?.salary ? styles.money : styles.dontMoney}>
-          {data?.salary ? `$${data?.salary}` : `You don't have money `}
+        <Text style={data?.totalCash ? styles.money : styles.dontMoney}>
+          {data?.totalCash ? `$${data?.totalCash}` : `You don't have money `}
         </Text>
         <Text style={styles.subtract}>
           {data?.expenditures
@@ -25,8 +37,21 @@ const WalletInfo = ({data, walletError}: walletInfoComponent) => {
         <ButtonIconComponent
           name="credit-card-alt"
           text={walletError ? 'See your wallet' : 'Create wallet'}
+          onPress={() => setCloseWalletModal(true)}
         />
       </View>
+
+      <SeeOrCreateModal
+        visible={visibleWalletModal}
+        onClose={() => setCloseWalletModal(false)}
+        walletError={walletError}
+        wallet={data}
+        walletForm={walletForm}
+        handleFormChange={handleFormChange}
+        setWalletForm={setWalletForm}
+        handleEdit={handleEdit}
+        handleSubmit={handleSubmit}
+      />
     </View>
   );
 };

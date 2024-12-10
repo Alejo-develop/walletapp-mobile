@@ -23,6 +23,7 @@ const HomeHook = () => {
       const wallet = await findWalletByIdService(userId, token);
 
       setWalletInfo(wallet);
+      setWalletError(true)
       return wallet;
     } catch (err) {
       setWalletError(false)

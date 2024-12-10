@@ -12,22 +12,22 @@ const HomeScreen = () => {
     walletInfo,
     categorys,
     budgets,
-    budgetId,
+    budgetId, 
     walletError, 
     fetchWallet,
     fetchBudgets,
     fetchCategorys,
-    setBudgetId,
+    setBudgetId, 
   } = HomeHook();
 
   useEffect(() => {
     if (budgetId) {
       fetchCategorys();
-    }
-  }, [budgetId]);
+    } 
+  }, [budgetId]);  
 
   useFocusEffect( 
-    useCallback(() => {
+    useCallback(() => { 
       fetchWallet();
       fetchBudgets(); 
     }, []), 
@@ -36,15 +36,16 @@ const HomeScreen = () => {
   return (
     <View style={styles.container}>
       <WalletInfo
-        data={walletInfo}
-        walletError={walletError}
+        data={walletInfo} 
+        walletError={walletError}  
       />
+ 
+      <BudgetSelectComponent data={budgets} setBudgetID={setBudgetId} /> 
 
-      <BudgetSelectComponent data={budgets} setBudgetID={setBudgetId} />
-
-      <CategoryContainerComponents data={categorys}/>
-    </View>
-  );
+      <CategoryContainerComponents data={categorys}/> 
+    </View>    
+  ); 
 };
-
+ 
 export default HomeScreen; 
+ 
