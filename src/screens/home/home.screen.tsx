@@ -18,16 +18,16 @@ const HomeScreen = () => {
     fetchWallet,
     fetchBudgets,
     fetchCategorys,
-    setBudgetId,
+    setBudgetId, 
     setGetNewWallet,
   } = HomeHook();
  
-  useEffect(() => {
+  useEffect(() => { 
     if(getNewWallet === true){
       fetchWallet()
       setGetNewWallet(false)
-    }
-    if (budgetId) {  
+    } 
+    if (budgetId) {   
       fetchCategorys();
     } 
   }, [budgetId, getNewWallet]);   
@@ -49,9 +49,9 @@ const HomeScreen = () => {
  
       <BudgetSelectComponent data={budgets} setBudgetID={setBudgetId} /> 
 
-      <CategoryContainerComponents data={categorys}/>  
+      <CategoryContainerComponents data={categorys}/> 
     </View>     
-  ); 
+  );  
 };
  
 export default HomeScreen; 

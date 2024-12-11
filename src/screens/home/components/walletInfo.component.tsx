@@ -4,6 +4,8 @@ import ButtonIconComponent from '../../../components/buttonIcon/buttonIcon.compo
 import {walletInfoComponent} from '../../../interfaces/home.interface';
 import SeeOrCreateModal from '../../../components/seeOrCreateWallet/seeOrCreateWalletModal.component';
 import WalletModalHook from '../../../hooks/modals/walletModal.hook';
+import TransactionModalHook from '../../../hooks/modals/transactionModal.hook';
+import CreateTransactionModal from '../../../components/createTransaction/createTransaction.component';
 
 const WalletInfo = ({data, walletError, setNewWallet}: walletInfoComponent) => {
   const {
@@ -15,6 +17,8 @@ const WalletInfo = ({data, walletError, setNewWallet}: walletInfoComponent) => {
     handleEdit,
     handleSubmit,
   } = WalletModalHook();
+
+  const {isModalVisible, setIsModalVisible} = TransactionModalHook();
 
   return (
     <View style={styles.containerMoney}>
@@ -31,7 +35,8 @@ const WalletInfo = ({data, walletError, setNewWallet}: walletInfoComponent) => {
 
       <View style={styles.containerButtonsActions}>
         {walletError && (
-          <ButtonIconComponent name="usd" text="New transaction" />
+          <ButtonIconComponent name="usd" text="New transaction" 
+          onPress={() => setIsModalVisible(true)}/>
         )}
 
         <ButtonIconComponent
@@ -52,6 +57,11 @@ const WalletInfo = ({data, walletError, setNewWallet}: walletInfoComponent) => {
         handleEdit={handleEdit}
         handleSubmit={handleSubmit}
         setNewWallet={setNewWallet}
+      />
+
+      <CreateTransactionModal
+        onClose={() => setIsModalVisible(false)}
+        visibleModal={isModalVisible}
       />
     </View>
   );

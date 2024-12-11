@@ -18,6 +18,17 @@ export interface WalletModal {
   setNewWallet: Dispatch<SetStateAction<boolean>>;
 }
 
+export interface HeaderModalProps{
+  onClose: () => void;
+  text: string
+}
+
+export interface TransactionModal {
+  visibleModal: boolean;
+  onClose: () => void;
+  walletID?: WalletResponse | null;
+}
+
 export interface CreditCardProps {
   wallet?: WalletResponse | null | undefined;
   walletError: boolean;

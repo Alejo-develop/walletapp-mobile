@@ -1,10 +1,10 @@
-import {Modal, Text, TextInput, TouchableOpacity, View} from 'react-native';
+import {Modal, Text, TextInput, View} from 'react-native';
 import {WalletModal} from '../../interfaces/modal.interface';
 import styles from './style';
 import CreditCardComponent from './components/creditCard.component';
 import ButtonComponent from '../buttonGeneric/button.component';
-import { height, secondaryColor } from '../../utils/constants/style.constants';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import {secondaryColor} from '../../utils/constants/style.constants';
+import HeaderModalComponent from '../headerModal/headerModal.component';
 
 const SeeOrCreateModal = ({
   visible,
@@ -25,13 +25,7 @@ const SeeOrCreateModal = ({
       onRequestClose={onClose}>
       <View style={styles.container}>
         <View style={styles.modal}>
-          <View style={styles.headerModal}>
-            <TouchableOpacity onPress={onClose}>
-              <Icon name='arrow-left' style={{color: 'white', fontSize: height * 0.025}}/>
-            </TouchableOpacity>
-
-            <Text style={styles.title}>Wallet</Text>
-          </View>
+          <HeaderModalComponent onClose={onClose} text='Wallet'/>
 
           <CreditCardComponent
             walletError={walletError}
