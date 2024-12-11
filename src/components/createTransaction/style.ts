@@ -17,13 +17,18 @@ const styles = StyleSheet.create({
     elevation: 12,
     alignItems: 'center',
   },
-  containerImg: {
-    borderWidth: 10
-  },
   img: {
-    width: width * 0.75,
-    height: height * 0.17,
+    width: width * 0.6,
+    height: height * 0.07,
     borderWidth: 3,
+  },
+  containerInput: {
+    marginTop: height * 0.025,
+    gap: height * 0.02
+  },
+  titleInput: {
+    color: 'white',
+    marginBottom: height * 0.012
   }
 });
 

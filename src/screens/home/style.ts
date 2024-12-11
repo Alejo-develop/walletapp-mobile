@@ -53,6 +53,11 @@ const styles = StyleSheet.create({
     gap: 14,
     paddingBottom: height * 0.3
   },
+  selectContainer: {
+    backgroundColor: primaryColor,
+    padding: 20,
+    marginTop: height * 0.045,
+  },
   titleCategorys: {
     marginTop: height * 0.02,
     fontSize: height * 0.023,

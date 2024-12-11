@@ -4,7 +4,11 @@ import { WalletResponse } from './wallet.interface';
 
 export interface BudgetListComponentProps {
   data: BudgetResponse[] | null;
-  setBudgetID: React.Dispatch<React.SetStateAction<string | null>>;
+  setID: React.Dispatch<React.SetStateAction<string | null>>;
+  widthChoose: number,
+  labelFocus: string,
+  placeholder: string,
+  placeholderFocus: string
 }
 
 export interface CategoryContainerComponent {
