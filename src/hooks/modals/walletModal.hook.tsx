@@ -14,6 +14,7 @@ const WalletModalHook = () => {
   const auth = useAuth();
   const [walletForm, setWalletForm] = useState<WalletInterface>({});
   const [visibleWalletModal, setCloseWalletModal] = useState<boolean>(false);
+  const [visibleTransactionModal, setCloseTransactionModal] = useState<boolean>(false);
   const [error, SetError] = useState<string>('');
 
   const handleFormChange = (field: keyof WalletResponse, value: string) => {
@@ -90,6 +91,8 @@ const WalletModalHook = () => {
   return {
     walletForm,
     visibleWalletModal,
+    visibleTransactionModal,
+    setCloseTransactionModal,
     setCloseWalletModal,
     handleFormChange,
     setWalletForm,

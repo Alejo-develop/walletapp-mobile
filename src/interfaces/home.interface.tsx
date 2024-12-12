@@ -8,7 +8,9 @@ export interface BudgetListComponentProps {
   labelFocus: string;
   placeholder: string;
   placeholderFocus: string;
+  position: string;
   setID?: React.Dispatch<React.SetStateAction<string | null>>;
+  setBudgetForTransactions?: React.Dispatch<React.SetStateAction<string | null>>;
 }
 
 export interface CategoryContainerComponent {

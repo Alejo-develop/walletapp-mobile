@@ -57,12 +57,13 @@ const HomeScreen = () => {
           placeholder="Select Budget..."
           placeholderFocus="Budget..."
           data={budgets}
+          position='bottom'
           setID={setBudgetId} 
-        />
+        />  
       </View>
-
+ 
       <CategoryContainerComponents data={categorys} />
-    </View>
+    </View> 
   );
 };
 

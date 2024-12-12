@@ -2,7 +2,6 @@ import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import InputComponent from '../../../components/inputGeneric/input.component';
 import {
   height,
-  secondaryColor,
   width,
 } from '../../../utils/constants/style.constants';
 import { FormAuthComponentProps } from '../../../interfaces/auth.interface';
@@ -46,7 +45,7 @@ const styles = StyleSheet.create({
   },
   label: {
     alignSelf: 'flex-start',
-    color: secondaryColor,
+    color: 'white',
   },
   forgotYourPassworButton: {
     alignSelf: 'flex-end',

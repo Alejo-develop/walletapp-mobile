@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
   },
   label: {
     alignSelf: 'flex-start',
-    color: secondaryColor,
+    color: 'white',
   },
 });
 

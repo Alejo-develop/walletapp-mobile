@@ -7,18 +7,25 @@ import WalletModalHook from '../../../hooks/modals/walletModal.hook';
 import TransactionModalHook from '../../../hooks/modals/transactionModal.hook';
 import CreateTransactionModal from '../../../components/createTransaction/createTransaction.component';
 
-const WalletInfo = ({setID, data, categorys, walletError,  budgets, setNewWallet,}: walletInfoComponent) => {
+const WalletInfo = ({
+  setID,
+  data,
+  categorys,
+  walletError,
+  budgets,
+  setNewWallet,
+}: walletInfoComponent) => {
   const {
     walletForm,
     visibleWalletModal,
+    visibleTransactionModal,
     setCloseWalletModal,
     setWalletForm,
     handleFormChange,
     handleEdit,
     handleSubmit,
+    setCloseTransactionModal
   } = WalletModalHook();
-
-  const {isModalVisible, setIsModalVisible} = TransactionModalHook();
 
   return (
     <View style={styles.containerMoney}>
@@ -35,8 +42,11 @@ const WalletInfo = ({setID, data, categorys, walletError,  budgets, setNewWallet
 
       <View style={styles.containerButtonsActions}>
         {walletError && (
-          <ButtonIconComponent name="usd" text="New transaction" 
-          onPress={() => setIsModalVisible(true)}/>
+          <ButtonIconComponent
+            name="usd"
+            text="New transaction"
+            onPress={() => setCloseTransactionModal(true)}
+          />
         )}
 
         <ButtonIconComponent
@@ -60,12 +70,12 @@ const WalletInfo = ({setID, data, categorys, walletError,  budgets, setNewWallet
       />
 
       <CreateTransactionModal
-        visibleModal={isModalVisible}
+        visibleModal={visibleTransactionModal}
         budgets={budgets}
         walletID={data?.id}
         categorys={categorys}
         setID={setID}
-        onClose={() => setIsModalVisible(false)}
+        onClose={() => setCloseTransactionModal(false)}
       />
     </View>
   );

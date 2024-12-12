@@ -5,8 +5,24 @@ import HeaderModalComponent from '../headerModal/headerModal.component';
 import FormTransactionModal from './components/formTransaction.component';
 import ButtonComponent from '../buttonGeneric/button.component';
 import SelectComponent from '../select/select.component';
+import TransactionModalHook from '../../hooks/modals/transactionModal.hook';
 
-const CreateTransactionModal = ({visibleModal, onClose, budgets, walletID, categorys, setID}: TransactionModal) => {
+const CreateTransactionModal = ({
+  visibleModal,
+  onClose,
+  budgets,
+  walletID,
+  categorys,
+  setID
+}: TransactionModal) => {
+  const {
+    form,
+    createTransaction,
+    handleFormChange,
+    setBudgetID,
+    setCategoryID,
+  } = TransactionModalHook();
+
   return (
     <Modal
       animationType="slide"
@@ -24,14 +40,31 @@ const CreateTransactionModal = ({visibleModal, onClose, budgets, walletID, categ
             />
           </View>
 
-          <FormTransactionModal />
+          <FormTransactionModal handleFormChange={handleFormChange} />
 
           <View style={styles.containerSelects}>
-            <SelectComponent data={budgets} placeholder='Select a Budget...' labelFocus='Budget' placeholderFocus='Budget...' widthChoose={0.55} setID={setID}/>
-            <SelectComponent  data={categorys} placeholder='Select a Category...' labelFocus='Categorys' placeholderFocus='categorys...' widthChoose={0.55}/>
+            <SelectComponent
+              position="top"
+              data={budgets}
+              placeholder="Select a Budget..."
+              labelFocus="Budget"
+              placeholderFocus="Budget..."
+              widthChoose={0.55}
+              setID={setBudgetID}
+              setBudgetForTransactions={setID}
+            />
+            <SelectComponent
+              position="top"
+              data={categorys}
+              placeholder="Select a Category..."
+              labelFocus="Categorys"
+              placeholderFocus="categorys..."
+              widthChoose={0.55}
+              setID={setCategoryID}
+            />
           </View>
-       
-          <ButtonComponent text='Create'/>
+
+          <ButtonComponent text="Create" onPress={() => createTransaction(form, walletID)} />
         </View>
       </View>
     </Modal>

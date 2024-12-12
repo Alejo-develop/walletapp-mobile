@@ -11,7 +11,9 @@ const SelectComponent = ({
   placeholder,
   placeholderFocus,
   widthChoose,
+  position,
   setID,
+  setBudgetForTransactions,
 }: BudgetListComponentProps) => {
   const [value, setValue] = useState<string | null>(null);
   const [isFocus, setIsFocus] = useState(false);
@@ -48,7 +50,9 @@ const SelectComponent = ({
           styles.itemTextStyle,
           {backgroundColor: primaryColor, color: 'white'},
         ]}
-        dropdownPosition="bottom"
+        dropdownPosition={
+          position === 'top' || position === 'bottom' ? position : 'auto'
+        }
         data={data || []}
         maxHeight={250}
         labelField="name"
@@ -62,6 +66,10 @@ const SelectComponent = ({
           setIsFocus(false);
           if (setID) {
             setID(item.id);
+          }
+
+          if (setBudgetForTransactions) {
+            setBudgetForTransactions(item.id);
           }
         }}
       />

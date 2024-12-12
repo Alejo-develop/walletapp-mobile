@@ -1,5 +1,5 @@
 import {StyleSheet, Text, View} from 'react-native';
-import {height, width} from '../../../utils/constants/style.constants';
+import {height, secondaryColor, width} from '../../../utils/constants/style.constants';
 
 const HeaderLoginComponent = () => {
   return (
@@ -8,7 +8,7 @@ const HeaderLoginComponent = () => {
 
       <View>
         <Text style={styles.title}>Welcome Back</Text>
-        <Text style={styles.title}>Howard</Text>
+        <Text style={styles.titleSpan}>Howard</Text>
       </View>
     </View>
   );
@@ -36,6 +36,13 @@ const styles = StyleSheet.create({
     color: 'white',
     fontWeight: '100',
   },
+  titleSpan: {
+    alignSelf: 'flex-start',
+    marginLeft: width * 0.1,
+    fontSize: height * 0.035,
+    color: secondaryColor,
+    fontWeight: '100',
+  }
 });
 
 export default HeaderLoginComponent;
