@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {Text, View} from 'react-native';
 import {Dropdown} from 'react-native-element-dropdown';
 import {BudgetListComponentProps} from '../../interfaces/home.interface';
-import {primaryColor, width } from '../../utils/constants/style.constants';
+import {primaryColor, width} from '../../utils/constants/style.constants';
 import styles from './styles';
 
 const SelectComponent = ({
@@ -28,12 +28,22 @@ const SelectComponent = ({
     <View>
       {renderLabel()}
       <Dropdown
-        style={[styles.dropdown, {width: width * widthChoose}, isFocus && {borderColor: 'white'}]}
+        style={[
+          styles.dropdown,
+          {width: width * widthChoose},
+          isFocus && {borderColor: 'white'},
+        ]}
         containerStyle={styles.dropdownContainer}
         placeholderStyle={styles.placeholderStyle}
         selectedTextStyle={styles.selectedTextStyle}
-        inputSearchStyle={[styles.inputSearchStyle, {backgroundColor: primaryColor, color: 'white'}]}
-        itemContainerStyle={[styles.itemContainerStyle, {backgroundColor: primaryColor}]}
+        inputSearchStyle={[
+          styles.inputSearchStyle,
+          {backgroundColor: primaryColor, color: 'white'},
+        ]}
+        itemContainerStyle={[
+          styles.itemContainerStyle,
+          {backgroundColor: primaryColor},
+        ]}
         itemTextStyle={[
           styles.itemTextStyle,
           {backgroundColor: primaryColor, color: 'white'},
@@ -50,7 +60,9 @@ const SelectComponent = ({
         onChange={item => {
           setValue(item.name);
           setIsFocus(false);
-          setID(item.id);
+          if (setID) {
+            setID(item.id);
+          }
         }}
       />
     </View>

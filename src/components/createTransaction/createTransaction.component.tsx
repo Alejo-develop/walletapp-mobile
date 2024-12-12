@@ -6,7 +6,7 @@ import FormTransactionModal from './components/formTransaction.component';
 import ButtonComponent from '../buttonGeneric/button.component';
 import SelectComponent from '../select/select.component';
 
-const CreateTransactionModal = ({visibleModal, onClose}: TransactionModal) => {
+const CreateTransactionModal = ({visibleModal, onClose, budgets, walletID, categorys}: TransactionModal) => {
   return (
     <Modal
       animationType="slide"
@@ -26,6 +26,10 @@ const CreateTransactionModal = ({visibleModal, onClose}: TransactionModal) => {
 
           <FormTransactionModal />
 
+          <View>
+            <SelectComponent data={budgets} placeholder='Select a Budget...' labelFocus='Budget' placeholderFocus='Budget...' widthChoose={0.7}/>
+            <SelectComponent  data={categorys} placeholder='Select a Category...' labelFocus='Categorys' placeholderFocus='categorys...' widthChoose={0.7}/>
+          </View>
        
           <ButtonComponent text='Create'/>
         </View>

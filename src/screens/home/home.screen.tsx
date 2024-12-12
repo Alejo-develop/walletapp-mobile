@@ -18,7 +18,7 @@ const HomeScreen = () => {
     fetchWallet,
     fetchBudgets,
     fetchCategorys,
-    setBudgetId, 
+    setBudgetId,
     setGetNewWallet,
   } = HomeHook();
 
@@ -28,6 +28,7 @@ const HomeScreen = () => {
       setGetNewWallet(false);
     }
     if (budgetId) {
+      console.log('pidiendo categorias');
       fetchCategorys();
     }
   }, [budgetId, getNewWallet]);
@@ -42,9 +43,11 @@ const HomeScreen = () => {
   return (
     <View style={styles.container}>
       <WalletInfo
+        budgets={budgets}
         data={walletInfo}
         walletError={walletError}
         setNewWallet={setGetNewWallet}
+        categorys={categorys}
       />
       <View style={styles.selectContainer}>
         <SelectComponent

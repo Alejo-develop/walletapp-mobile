@@ -1,5 +1,7 @@
 import {Dispatch, SetStateAction} from 'react';
 import {WalletInterface, WalletResponse} from './wallet.interface';
+import { BudgetResponse } from './budgets.interface';
+import { CategoryResponse } from './categorys.interface';
 
 export interface WalletModal {
   visible: boolean;
@@ -26,7 +28,9 @@ export interface HeaderModalProps{
 export interface TransactionModal {
   visibleModal: boolean;
   onClose: () => void;
-  walletID?: WalletResponse | null;
+  walletID?: string | null;
+  budgets: BudgetResponse[] | null;
+  categorys: CategoryResponse[] | null
 }
 
 export interface CreditCardProps {

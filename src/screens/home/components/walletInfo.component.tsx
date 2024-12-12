@@ -7,7 +7,7 @@ import WalletModalHook from '../../../hooks/modals/walletModal.hook';
 import TransactionModalHook from '../../../hooks/modals/transactionModal.hook';
 import CreateTransactionModal from '../../../components/createTransaction/createTransaction.component';
 
-const WalletInfo = ({data, walletError, setNewWallet}: walletInfoComponent) => {
+const WalletInfo = ({data, categorys, walletError,  budgets, setNewWallet,}: walletInfoComponent) => {
   const {
     walletForm,
     visibleWalletModal,
@@ -62,6 +62,9 @@ const WalletInfo = ({data, walletError, setNewWallet}: walletInfoComponent) => {
       <CreateTransactionModal
         onClose={() => setIsModalVisible(false)}
         visibleModal={isModalVisible}
+        budgets={budgets}
+        walletID={data?.id}
+        categorys={categorys}
       />
     </View>
   );
