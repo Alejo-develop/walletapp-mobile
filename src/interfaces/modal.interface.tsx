@@ -30,7 +30,8 @@ export interface TransactionModal {
   onClose: () => void;
   walletID?: string | null;
   budgets: BudgetResponse[] | null;
-  categorys: CategoryResponse[] | null
+  categorys: CategoryResponse[] | null;
+  setID?: React.Dispatch<React.SetStateAction<string | null>>;
 }
 
 export interface CreditCardProps {

@@ -1,1 +1,1 @@
-export const apiUrl = 'http://192.168.89.64:3000/cashify'
+export const apiUrl = 'http://192.168.58.109:3000/cashify'

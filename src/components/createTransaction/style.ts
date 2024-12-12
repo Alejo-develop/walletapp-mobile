@@ -20,15 +20,19 @@ const styles = StyleSheet.create({
   img: {
     width: width * 0.6,
     height: height * 0.07,
-    borderWidth: 3,
   },
   containerInput: {
-    marginTop: height * 0.025,
-    gap: height * 0.02
+    marginTop: height * 0.018,
+    gap: height * 0.015
   },
   titleInput: {
     color: 'white',
     marginBottom: height * 0.012
+  },
+  containerSelects: {
+    marginTop: height * 0.03,
+    marginBottom: height * 0.02,
+    gap: height * 0.02
   }
 });
 

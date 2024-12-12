@@ -9,7 +9,6 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     paddingLeft: 12,
     elevation: 12,
-    borderWidth: 0.4
   },
 });
 

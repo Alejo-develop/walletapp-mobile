@@ -1,4 +1,4 @@
-import {Image, Modal, Text, View} from 'react-native';
+import {Image, Modal, View} from 'react-native';
 import {TransactionModal} from '../../interfaces/modal.interface';
 import styles from './style';
 import HeaderModalComponent from '../headerModal/headerModal.component';
@@ -6,7 +6,7 @@ import FormTransactionModal from './components/formTransaction.component';
 import ButtonComponent from '../buttonGeneric/button.component';
 import SelectComponent from '../select/select.component';
 
-const CreateTransactionModal = ({visibleModal, onClose, budgets, walletID, categorys}: TransactionModal) => {
+const CreateTransactionModal = ({visibleModal, onClose, budgets, walletID, categorys, setID}: TransactionModal) => {
   return (
     <Modal
       animationType="slide"
@@ -26,9 +26,9 @@ const CreateTransactionModal = ({visibleModal, onClose, budgets, walletID, categ
 
           <FormTransactionModal />
 
-          <View>
-            <SelectComponent data={budgets} placeholder='Select a Budget...' labelFocus='Budget' placeholderFocus='Budget...' widthChoose={0.7}/>
-            <SelectComponent  data={categorys} placeholder='Select a Category...' labelFocus='Categorys' placeholderFocus='categorys...' widthChoose={0.7}/>
+          <View style={styles.containerSelects}>
+            <SelectComponent data={budgets} placeholder='Select a Budget...' labelFocus='Budget' placeholderFocus='Budget...' widthChoose={0.55} setID={setID}/>
+            <SelectComponent  data={categorys} placeholder='Select a Category...' labelFocus='Categorys' placeholderFocus='categorys...' widthChoose={0.55}/>
           </View>
        
           <ButtonComponent text='Create'/>

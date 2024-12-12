@@ -46,8 +46,9 @@ const HomeScreen = () => {
         budgets={budgets}
         data={walletInfo}
         walletError={walletError}
-        setNewWallet={setGetNewWallet}
         categorys={categorys}
+        setNewWallet={setGetNewWallet}
+        setID={setBudgetId}
       />
       <View style={styles.selectContainer}>
         <SelectComponent
@@ -56,7 +57,7 @@ const HomeScreen = () => {
           placeholder="Select Budget..."
           placeholderFocus="Budget..."
           data={budgets}
-          setID={setBudgetId}
+          setID={setBudgetId} 
         />
       </View>
 
