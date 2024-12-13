@@ -47,8 +47,6 @@ const WalletModalHook = () => {
     };
 
     try {
-      console.log(formatWallet);
-
       await createWalletServices(token, formatWallet);
 
       setCloseWalletModal(false);

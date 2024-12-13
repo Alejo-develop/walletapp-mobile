@@ -1,12 +1,14 @@
 import {useState} from 'react';
 import {TransactionInterface} from '../../interfaces/transactions.interface';
 import {useAuth} from '../../contexts/auth.context';
+import { createTransactionServices } from '../../services/transaction.services';
 
 const TransactionModalHook = () => {
   const [form, setForm] = useState<TransactionInterface>({});
   const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
   const [budgetID, setBudgetID] = useState<string | null>(null);
   const [categoryID, setCategoryID] = useState<string | null>(null);
+  const [error, setError] = useState<string>()
   const auth = useAuth();
 
   const handleFormChange = (
@@ -34,7 +36,11 @@ const TransactionModalHook = () => {
       budgetID: budgetID
     }
 
-    console.log(formatedForm, token);
+    try {
+      await createTransactionServices(formatedForm, token)
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return {
