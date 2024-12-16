@@ -1,14 +1,15 @@
-import {useState} from 'react';
+import {Dispatch, SetStateAction, useState} from 'react';
 import {TransactionInterface} from '../../interfaces/transactions.interface';
 import {useAuth} from '../../contexts/auth.context';
-import { createTransactionServices } from '../../services/transaction.services';
+import {createTransactionServices} from '../../services/transaction.services';
+import {ErrorResponse} from '../../interfaces/error.interface';
 
 const TransactionModalHook = () => {
   const [form, setForm] = useState<TransactionInterface>({});
   const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
   const [budgetID, setBudgetID] = useState<string | null>(null);
   const [categoryID, setCategoryID] = useState<string | null>(null);
-  const [error, setError] = useState<string>()
+  const [error, setError] = useState<string>();
   const auth = useAuth();
 
   const handleFormChange = (
@@ -24,22 +25,29 @@ const TransactionModalHook = () => {
   const createTransaction = async (
     form: TransactionInterface,
     walletID: string | null | undefined,
+    setClose: Dispatch<SetStateAction<boolean>>,
   ) => {
-    const userId = auth.getId()
-    const token = await auth.getToken()
+    const userId = auth.getId();
+    const token = await auth.getToken();
 
     const formatedForm = {
       ...form,
       walletID: walletID,
       userID: userId,
       categoryID: categoryID,
-      budgetID: budgetID
-    }
+      budgetID: budgetID,
+    };
 
     try {
-      await createTransactionServices(formatedForm, token)
-    } catch (err) {
-      console.log(err);
+      await createTransactionServices(formatedForm, token);
+      setClose(false);
+    } catch (err: any) {
+      const apiError = err.response?.data as ErrorResponse;
+      if (apiError?.message) {
+        setError(apiError.message);
+      } else {
+        console.error(err);
+      }
     }
   };
 
@@ -48,6 +56,7 @@ const TransactionModalHook = () => {
     budgetID,
     categoryID,
     isModalVisible,
+    error,
     handleFormChange,
     setIsModalVisible,
     setCategoryID,

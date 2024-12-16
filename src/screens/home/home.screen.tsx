@@ -39,7 +39,7 @@ const HomeScreen = () => {
       fetchBudgets();
     }, []),
   );
-
+ 
   return (
     <View style={styles.container}>
       <WalletInfo

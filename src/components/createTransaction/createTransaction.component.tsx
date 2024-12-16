@@ -64,7 +64,7 @@ const CreateTransactionModal = ({
             />
           </View>
 
-          <ButtonComponent text="Create" onPress={() => createTransaction(form, walletID)} />
+          <ButtonComponent text="Create" onPress={() => createTransaction(form, walletID, onClose)} />
         </View>
       </View>
     </Modal>

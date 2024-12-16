@@ -41,6 +41,8 @@ const LoginHook = () => {
     } catch (err: any) {
       const apiError = err.response?.data as ErrorResponse;
       if (apiError?.message) {
+        console.log(apiError.message);
+        
         setError(apiError.message);
         setLoading(false);
       } else {
