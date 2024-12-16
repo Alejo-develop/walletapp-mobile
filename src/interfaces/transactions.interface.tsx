@@ -1,4 +1,4 @@
-export interface TransactionInterface {
+export interface TransactionFormInterface {
   name?: string | null;
   store?: string | null;
   description?: string | null;
@@ -16,6 +16,21 @@ export interface CreateTransactionInterface {
   cost?: number | null;
 }
 
+export interface TransactionResponseInterface {
+  id: string;
+  userID?: string | null;
+  budgetID?: string | null;
+  walletID?: string | null;
+  categoryID?: string | null;
+  name?: string | null;
+  store?: string | null;
+  description?: string | null;
+  cost?: number | null;
+  date: string;
+  category?: {name: string} | null;
+  budget?: {name: string} | null;
+}
+
 export interface FormTransactionComponentProps {
-  handleFormChange: (field: keyof TransactionInterface, value: string) => void;
+  handleFormChange: (field: keyof TransactionFormInterface, value: string) => void;
 }

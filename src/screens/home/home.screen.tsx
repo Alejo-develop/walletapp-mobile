@@ -8,7 +8,7 @@ import {useCallback, useEffect} from 'react';
 import SelectComponent from '../../components/select/select.component';
 
 const HomeScreen = () => {
-  const {
+  const { 
     walletInfo,
     categorys,
     budgets,
@@ -16,17 +16,17 @@ const HomeScreen = () => {
     walletError,
     getNewWallet,
     fetchWallet,
-    fetchBudgets,
+    fetchBudgets, 
     fetchCategorys,
     setBudgetId,
     setGetNewWallet,
-  } = HomeHook();
+  } = HomeHook();  
 
   useEffect(() => {
     if (getNewWallet === true) {
-      fetchWallet();
+      fetchWallet(); 
       setGetNewWallet(false);
-    }
+    } 
     if (budgetId) {
       console.log('pidiendo categorias');
       fetchCategorys();
@@ -38,17 +38,17 @@ const HomeScreen = () => {
       fetchWallet();
       fetchBudgets();
     }, []),
-  );
+  ); 
  
   return (
     <View style={styles.container}>
-      <WalletInfo
+      <WalletInfo 
         budgets={budgets}
         data={walletInfo}
         walletError={walletError}
         categorys={categorys}
         setNewWallet={setGetNewWallet}
-        setID={setBudgetId}
+        setID={setBudgetId} 
       />
       <View style={styles.selectContainer}>
         <SelectComponent

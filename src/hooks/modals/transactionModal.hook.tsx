@@ -1,11 +1,11 @@
 import {Dispatch, SetStateAction, useState} from 'react';
-import {TransactionInterface} from '../../interfaces/transactions.interface';
+import {TransactionFormInterface} from '../../interfaces/transactions.interface';
 import {useAuth} from '../../contexts/auth.context';
 import {createTransactionServices} from '../../services/transaction.services';
 import {ErrorResponse} from '../../interfaces/error.interface';
 
 const TransactionModalHook = () => {
-  const [form, setForm] = useState<TransactionInterface>({});
+  const [form, setForm] = useState<TransactionFormInterface>({});
   const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
   const [budgetID, setBudgetID] = useState<string | null>(null);
   const [categoryID, setCategoryID] = useState<string | null>(null);
@@ -13,7 +13,7 @@ const TransactionModalHook = () => {
   const auth = useAuth();
 
   const handleFormChange = (
-    field: keyof TransactionInterface,
+    field: keyof TransactionFormInterface,
     value: string,
   ) => {
     setForm(prevForm => ({
@@ -23,7 +23,7 @@ const TransactionModalHook = () => {
   };
 
   const createTransaction = async (
-    form: TransactionInterface,
+    form: TransactionFormInterface,
     walletID: string | null | undefined,
     setClose: Dispatch<SetStateAction<boolean>>,
   ) => {

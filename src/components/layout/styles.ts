@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-around',
     flexDirection: 'row',
-    gap: width * 0.19,
+    gap: width * 0.08,
     backgroundColor: primaryColor
   },
   cashify: {
@@ -26,6 +26,11 @@ const styles = StyleSheet.create({
   },
   children: {
     height: height * 0.83,
+  },
+  sectionLeft: {
+    flexDirection: 'row',
+    gap: 20,
+    alignItems: 'center'
   }
 });
 
