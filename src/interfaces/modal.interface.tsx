@@ -2,6 +2,7 @@ import {Dispatch, SetStateAction} from 'react';
 import {WalletInterface, WalletResponse} from './wallet.interface';
 import { BudgetResponse } from './budgets.interface';
 import { CategoryResponse } from './categorys.interface';
+import { TransactionResponseInterface } from './transactions.interface';
 
 export interface WalletModal {
   visible: boolean;
@@ -34,8 +35,15 @@ export interface TransactionModal {
   setID?: React.Dispatch<React.SetStateAction<string | null>>;
 }
 
+export interface TransactionInfoProps{
+  visibleModal: boolean;
+  onClose: () => void;
+  info: TransactionResponseInterface
+}
+
 export interface CreditCardProps {
   wallet?: WalletResponse | null | undefined;
   walletError: boolean;
   handleFormChange: (field: keyof WalletResponse, value: string) => void;
 }
+

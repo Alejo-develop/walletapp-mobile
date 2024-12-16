@@ -1,9 +1,9 @@
 import React from 'react';
 import { View, Text, StyleSheet, SectionList } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import { height, width } from '../../../utils/constants/style.constants';
-import { TransactionResponseInterface } from '../../../interfaces/transactions.interface';
+import { TransactionResponseInterface } from '../../../../interfaces/transactions.interface';
 import TransactionCard from './transactionItem.component';
+import { height, width } from '../../../../utils/constants/style.constants';
 
 const TransactionsList = ({ sections }: { sections: { title: string; data: TransactionResponseInterface[] }[] }) => {
   const renderSectionHeader = ({ section: { title } }: { section: { title: string } }) => (

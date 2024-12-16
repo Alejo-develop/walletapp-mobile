@@ -1,8 +1,8 @@
 import {Text, View, FlatList} from 'react-native';
 import styles from '../style';
-import ButtonCategoryComponent from '../../../components/buttonCategory/buttonCategory.component';
+import ButtonCategoryComponent from '../../../../components/buttonCategory/buttonCategory.component';
 import React from 'react';
-import { CategoryContainerComponent } from '../../../interfaces/home.interface';
+import { CategoryContainerComponent } from '../../../../interfaces/home.interface';
 
 const CategoryContainerComponents = ({data}: CategoryContainerComponent) => {
   return (

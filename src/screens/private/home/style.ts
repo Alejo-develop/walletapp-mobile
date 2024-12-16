@@ -6,7 +6,7 @@ import {
   secondaryColor,
   terceryColor,
   width,
-} from '../../utils/constants/style.constants';
+} from '../../../utils/constants/style.constants';
 
 const styles = StyleSheet.create({
   container: {

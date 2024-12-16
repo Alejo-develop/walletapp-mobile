@@ -1,14 +1,13 @@
 import {StyleSheet, Text, View} from 'react-native';
-import {height, secondaryColor, width} from '../../../utils/constants/style.constants';
+import {height, secondaryColor, width} from '../../../../utils/constants/style.constants';
 
-const HeaderLoginComponent = () => {
+const HeaderSignUpComponent = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.name}>Cashify</Text>
 
       <View>
-        <Text style={styles.title}>Welcome Back</Text>
-        <Text style={styles.titleSpan}>Howard</Text>
+        <Text style={styles.title}>Create an <Text style={styles.titleSpan}>Account</Text></Text>
       </View>
     </View>
   );
@@ -17,17 +16,13 @@ const HeaderLoginComponent = () => {
 const styles = StyleSheet.create({
   container: {
     alignSelf: 'flex-start',
-    gap: height * 0.05,
   },
   name: {
     color: 'white',
     position: 'relative',
-    bottom: height * 0.145,
+    bottom: height * 0.170,
     left: width * 0.1,
     fontSize: height * 0.02,
-  },
-  buttonsNav: {
-    flexDirection: 'row',
   },
   title: {
     alignSelf: 'flex-start',
@@ -45,4 +40,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default HeaderLoginComponent;
+export default HeaderSignUpComponent;

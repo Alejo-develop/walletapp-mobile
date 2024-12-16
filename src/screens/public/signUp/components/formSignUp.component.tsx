@@ -1,12 +1,13 @@
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import InputComponent from '../../../components/inputGeneric/input.component';
+import InputComponent from '../../../../components/inputGeneric/input.component';
 import {
   height,
+  secondaryColor,
   width,
-} from '../../../utils/constants/style.constants';
-import { FormAuthComponentProps } from '../../../interfaces/auth.interface';
+} from '../../../../utils/constants/style.constants';
+import { FormAuthComponentProps } from '../../../../interfaces/auth.interface';
 
-const FormLoginComponent = ({handleFormChange}: FormAuthComponentProps) => {
+const FormSignUpComponent = ({handleFormChange}: FormAuthComponentProps) => {
   return (
     <View style={styles.container}>
       <View style={styles.containerInputs}>
@@ -25,11 +26,15 @@ const FormLoginComponent = ({handleFormChange}: FormAuthComponentProps) => {
           entry={true}
           onChangeText={text => handleFormChange('password', text)}
         />
-        <TouchableOpacity style={styles.forgotYourPassworButton}>
-          <Text style={styles.textButton}>
-            Forgot your password?
-          </Text>
-        </TouchableOpacity>
+      </View>
+
+      <View style={styles.containerInputs}>
+        <Text style={styles.label}>Repeat Password</Text>
+        <InputComponent
+          placeholder="Repeat your password..."
+          entry={true}
+          onChangeText={text => handleFormChange('repeatPassword', text)}
+        />
       </View>
     </View>
   );
@@ -47,13 +52,6 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-start',
     color: 'white',
   },
-  forgotYourPassworButton: {
-    alignSelf: 'flex-end',
-  },
-  textButton: {
-    textDecorationLine: 'underline',
-    color: 'white'
-  }
 });
 
-export default FormLoginComponent;
+export default FormSignUpComponent;

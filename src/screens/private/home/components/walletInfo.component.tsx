@@ -1,11 +1,10 @@
 import {Text, View} from 'react-native';
 import styles from '../style';
-import ButtonIconComponent from '../../../components/buttonIcon/buttonIcon.component';
-import {walletInfoComponent} from '../../../interfaces/home.interface';
-import SeeOrCreateModal from '../../../components/seeOrCreateWallet/seeOrCreateWalletModal.component';
-import WalletModalHook from '../../../hooks/modals/walletModal.hook';
-import TransactionModalHook from '../../../hooks/modals/transactionModal.hook';
-import CreateTransactionModal from '../../../components/createTransaction/createTransaction.component';
+import ButtonIconComponent from '../../../../components/buttonIcon/buttonIcon.component';
+import { walletInfoComponent } from '../../../../interfaces/home.interface';
+import SeeOrCreateModal from '../../../../components/seeOrCreateWallet/seeOrCreateWalletModal.component';
+import WalletModalHook from '../../../../hooks/modals/walletModal.hook';
+import CreateTransactionModal from '../../../../components/createTransaction/createTransaction.component';
 
 const WalletInfo = ({
   setID,

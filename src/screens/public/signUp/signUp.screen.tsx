@@ -1,10 +1,10 @@
-import {ScrollView, Text, View} from 'react-native';
+import {ScrollView, Text} from 'react-native';
 import styles from './styles';
-import ButtonComponent from '../../components/buttonGeneric/button.component';
+import ButtonComponent from '../../../components/buttonGeneric/button.component';
 import HeaderSignUpComponent from './components/headerSignUp.component';
 import FormSignUpComponent from './components/formSignUp.component';
-import SignUpHook from '../../hooks/screens/signUp.hook';
-import { secondaryColor } from '../../utils/constants/style.constants';
+import SignUpHook from '../../../hooks/screens/signUp.hook';
+import { secondaryColor } from '../../../utils/constants/style.constants';
 
 const SignUpScreen = () => {
   const {signUp, error, form, handleFormChange, loading} = SignUpHook()

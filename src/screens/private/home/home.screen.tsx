@@ -2,10 +2,10 @@ import {View} from 'react-native';
 import styles from './style';
 import WalletInfo from './components/walletInfo.component';
 import CategoryContainerComponents from './components/categorysContainer.component';
-import HomeHook from '../../hooks/screens/home.hook';
+import HomeHook from '../../../hooks/screens/home.hook';
 import {useFocusEffect} from '@react-navigation/native';
 import {useCallback, useEffect} from 'react';
-import SelectComponent from '../../components/select/select.component';
+import SelectComponent from '../../../components/select/select.component';
 
 const HomeScreen = () => {
   const { 
@@ -19,9 +19,9 @@ const HomeScreen = () => {
     fetchBudgets, 
     fetchCategorys,
     setBudgetId,
-    setGetNewWallet,
+    setGetNewWallet, 
   } = HomeHook();  
-
+ 
   useEffect(() => {
     if (getNewWallet === true) {
       fetchWallet(); 

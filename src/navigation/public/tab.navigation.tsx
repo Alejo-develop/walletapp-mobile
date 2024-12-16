@@ -1,6 +1,6 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import LoginScreen from '../../screens/login/login.screen';
-import SignUpScreen from '../../screens/signUp/signUp.screen';
+import LoginScreen from '../../screens/public/login/login.screen';
+import SignUpScreen from '../../screens/public/signUp/signUp.screen';
 import { Text, View, StyleSheet } from 'react-native';
 import { secondaryColor, width } from '../../utils/constants/style.constants';
 

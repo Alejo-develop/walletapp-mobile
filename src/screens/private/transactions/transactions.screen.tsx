@@ -1,8 +1,8 @@
-import {Text, View} from 'react-native';
+import {View} from 'react-native';
 import styles from './styles';
 import { useCallback } from 'react';
 import { useFocusEffect } from '@react-navigation/native';
-import TransactionsHook from '../../hooks/screens/transactions.hook';
+import TransactionsHook from '../../../hooks/screens/transactions.hook';
 import TransactionsList from './components/list.component';
 
 const TransactionsScreen = () => {

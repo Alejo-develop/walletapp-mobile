@@ -41,6 +41,7 @@ const FormTransactionModal = ({
           placeholder="Cost by the transaction..."
           entry={false}
           onChangeText={text => handleFormChange('cost', text)}
+          keyBoardPad="decimal-pad"
         />
       </View>
     </View>

@@ -1,5 +1,5 @@
 import {Text, View} from 'react-native';
-import { height, primaryColor, width } from '../../utils/constants/style.constants';
+import { height, primaryColor, width } from '../../../utils/constants/style.constants';
 
 const PercentagesScreen = () => {
   return (

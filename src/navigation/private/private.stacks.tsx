@@ -1,8 +1,8 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import HomeScreen from '../../screens/home/home.screen';
+import HomeScreen from '../../screens/private/home/home.screen';
 import LayoutComponent from '../../components/layout/layout.component';
-import TransactionsScreen from '../../screens/transactions/transactions.screen';
-import PercentagesScreen from '../../screens/percentages/percentages.screen';
+import TransactionsScreen from '../../screens/private/transactions/transactions.screen';
+import PercentagesScreen from '../../screens/private/percentages/percentages.screen';
 import PrivateTabs from './privateTab.navigation';
 
 const Stack = createNativeStackNavigator();

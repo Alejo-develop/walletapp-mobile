@@ -1,12 +1,12 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import { View, StyleSheet } from 'react-native';
 import { height, primaryColor, secondaryColor, width } from '../../utils/constants/style.constants';
-import HomeScreen from '../../screens/home/home.screen';
-import TransactionsScreen from '../../screens/transactions/transactions.screen';
-import PercentagesScreen from '../../screens/percentages/percentages.screen';
+import HomeScreen from '../../screens/private/home/home.screen';
+import TransactionsScreen from '../../screens/private/transactions/transactions.screen';
+import PercentagesScreen from '../../screens/private/percentages/percentages.screen';
 import TabBarIcon from './icon.tab';
 
-const Tab = createBottomTabNavigator();
+const Tab = createBottomTabNavigator()
 
 const PrivateTabs = () => (
   <Tab.Navigator

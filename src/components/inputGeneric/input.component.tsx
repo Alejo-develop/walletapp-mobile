@@ -7,6 +7,7 @@ const InputComponent = ({
   value,
   onChangeText,
   entry,
+  keyBoardPad
 }: InputGenericProps) => {
   return (
     <View>
@@ -18,6 +19,7 @@ const InputComponent = ({
         secureTextEntry={entry}
         onChangeText={onChangeText}
         placeholderTextColor={'gray'}
+        keyboardType={keyBoardPad}
       />
     </View>
   );
