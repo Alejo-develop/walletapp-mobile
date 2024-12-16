@@ -9,8 +9,10 @@ export interface BudgetListComponentProps {
   placeholder: string;
   placeholderFocus: string;
   position: string;
+  isVisibleModalInfoBudget: boolean;
   setID?: React.Dispatch<React.SetStateAction<string | null>>;
   setBudgetForTransactions?: React.Dispatch<React.SetStateAction<string | null>>;
+  openModalInfoBudget: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export interface CategoryContainerComponent {

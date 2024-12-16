@@ -41,6 +41,12 @@ export interface TransactionInfoProps{
   info: TransactionResponseInterface
 }
 
+export interface BudgetInfoProps{
+  visibleModal: boolean;
+  onClose: () => void;
+  info: BudgetResponse | null
+}
+
 export interface CreditCardProps {
   wallet?: WalletResponse | null | undefined;
   walletError: boolean;

@@ -1,9 +1,8 @@
-import {Platform, StyleSheet} from 'react-native';
+import {StyleSheet} from 'react-native';
 import {
   fourthyCorlor,
   height,
   primaryColor,
-  secondaryColor,
   terceryColor,
   width,
 } from '../../../utils/constants/style.constants';
@@ -57,6 +56,8 @@ const styles = StyleSheet.create({
     backgroundColor: primaryColor,
     padding: 20,
     marginTop: height * 0.045,
+    flexDirection: 'row',
+    gap: 20
   },
   titleCategorys: {
     marginTop: height * 0.02,

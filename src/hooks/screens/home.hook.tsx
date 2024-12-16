@@ -14,7 +14,8 @@ const HomeHook = () => {
   const [categorys, setCategorys] = useState<CategoryResponse[] | null>(null);
   const [budgetId, setBudgetId] = useState<string | null>(null);
   const [walletError, setWalletError] = useState<boolean>(true)
-  const [getNewWallet, setGetNewWallet] = useState<boolean>(false)
+  const [getNewWallet, setGetNewWallet] = useState<boolean>(false);
+  const [isVisibleBudgetModal, setIsVisibleBudgetModal] = useState<boolean>(false)
 
   const fetchWallet = async () => {
     const userId = auth.getId();
@@ -63,6 +64,8 @@ const HomeHook = () => {
     budgets,
     walletError,
     getNewWallet,
+    isVisibleBudgetModal,
+    setIsVisibleBudgetModal,
     setGetNewWallet,
     fetchWallet,
     fetchBudgets,

@@ -4,6 +4,8 @@ import {Dropdown} from 'react-native-element-dropdown';
 import {BudgetListComponentProps} from '../../interfaces/home.interface';
 import {primaryColor, width} from '../../utils/constants/style.constants';
 import styles from './styles';
+import InfoBudgetModal from '../infoBudget/infoBudget.modal';
+import {BudgetResponse} from '../../interfaces/budgets.interface';
 
 const SelectComponent = ({
   data,
@@ -12,11 +14,20 @@ const SelectComponent = ({
   placeholderFocus,
   widthChoose,
   position,
+  isVisibleModalInfoBudget,
   setID,
   setBudgetForTransactions,
+  openModalInfoBudget,
 }: BudgetListComponentProps) => {
   const [value, setValue] = useState<string | null>(null);
   const [isFocus, setIsFocus] = useState(false);
+  const [selectedBudget, setSelectedBudget] = useState<BudgetResponse | null>(
+    null,
+  );
+
+  function isBudgetResponse(item: any): item is BudgetResponse {
+    return (item as BudgetResponse).id !== undefined;
+  }
 
   const renderLabel = () => {
     return (
@@ -71,7 +82,17 @@ const SelectComponent = ({
           if (setBudgetForTransactions) {
             setBudgetForTransactions(item.id);
           }
+
+          if (isBudgetResponse(item)) {
+            setSelectedBudget(item);
+          }
         }}
+      />
+
+      <InfoBudgetModal
+        visibleModal={isVisibleModalInfoBudget}
+        onClose={() => openModalInfoBudget(false)}
+        info={selectedBudget}
       />
     </View>
   );
