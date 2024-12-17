@@ -47,6 +47,12 @@ export interface BudgetInfoProps{
   info: BudgetResponse | null
 }
 
+export interface CategorySettingsProps{
+  visibleModal: boolean;
+  onClose: () => void;
+  info: CategoryResponse | null
+}
+
 export interface CreditCardProps {
   wallet?: WalletResponse | null | undefined;
   walletError: boolean;

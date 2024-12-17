@@ -6,6 +6,7 @@ import {primaryColor, width} from '../../utils/constants/style.constants';
 import styles from './styles';
 import InfoBudgetModal from '../infoBudget/infoBudget.modal';
 import {BudgetResponse} from '../../interfaces/budgets.interface';
+import ButtonInfoBudgetComponent from '../../screens/private/home/components/buttonInfoBudget';
 
 const SelectComponent = ({
   data,
@@ -14,16 +15,16 @@ const SelectComponent = ({
   placeholderFocus,
   widthChoose,
   position,
-  isVisibleModalInfoBudget,
+  isBudget,
   setID,
   setBudgetForTransactions,
-  openModalInfoBudget,
 }: BudgetListComponentProps) => {
   const [value, setValue] = useState<string | null>(null);
   const [isFocus, setIsFocus] = useState(false);
   const [selectedBudget, setSelectedBudget] = useState<BudgetResponse | null>(
     null,
   );
+  const [isBudgetModal, setIsBudgetModal] = useState<boolean>(false);
 
   function isBudgetResponse(item: any): item is BudgetResponse {
     return (item as BudgetResponse).id !== undefined;
@@ -38,7 +39,7 @@ const SelectComponent = ({
   };
 
   return (
-    <View>
+    <View style={{flexDirection: 'row'}}>
       {renderLabel()}
       <Dropdown
         style={[
@@ -88,12 +89,16 @@ const SelectComponent = ({
           }
         }}
       />
-
-      <InfoBudgetModal
-        visibleModal={isVisibleModalInfoBudget}
-        onClose={() => openModalInfoBudget(false)}
-        info={selectedBudget}
-      />
+      {isBudget ? (
+        <View>
+          <ButtonInfoBudgetComponent onPress={() => setIsBudgetModal(true)} />
+          <InfoBudgetModal
+            visibleModal={isBudgetModal}
+            onClose={() => setIsBudgetModal(false)}
+            info={selectedBudget}
+          />
+        </View>
+      ) : null}
     </View>
   );
 };

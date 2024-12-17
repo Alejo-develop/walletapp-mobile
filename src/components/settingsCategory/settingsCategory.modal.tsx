@@ -1,11 +1,11 @@
 import {Modal, Text, View} from 'react-native';
-import styles from './styles';
-import {BudgetInfoProps} from '../../interfaces/modal.interface';
+import styles from './style';
+import {CategorySettingsProps} from '../../interfaces/modal.interface';
 import HeaderModalComponent from '../headerModal/headerModal.component';
 import ButtonComponent from '../buttonGeneric/button.component';
 import ButtonIconComponent from '../buttonIcon/buttonIcon.component';
 
-const InfoBudgetModal = ({onClose, visibleModal, info}: BudgetInfoProps) => {
+const SettingsCategoryModal = ({onClose, visibleModal, info}: CategorySettingsProps) => {
   return (
     <Modal
       animationType="slide"
@@ -18,13 +18,12 @@ const InfoBudgetModal = ({onClose, visibleModal, info}: BudgetInfoProps) => {
 
           <View style={styles.containerTitles}>
             <Text style={styles.title}>{info?.name}</Text>
-            <Text style={styles.budget}><Text style={{color: 'white'}}>Budget: </Text>${info?.budget}</Text>
+            <Text style={styles.budget}><Text style={{color: 'white'}}>Budget: </Text>${info?.budget_for_category}</Text>
           </View>
 
           <View style={{flexDirection: 'row', gap: 20}}>
-            <ButtonIconComponent name='trash-o' text='Delete budget'  />
-            <ButtonIconComponent name='plus' text='Add money'  />
-            <ButtonIconComponent name='cart-plus' text='Add Category'  />
+            <ButtonIconComponent name='plus' text='Add money' />
+            <ButtonIconComponent name='trash-o' text='Delete Category'  />
           </View>
           <ButtonComponent text="Done" onPress={onClose} />
         </View>
@@ -33,4 +32,4 @@ const InfoBudgetModal = ({onClose, visibleModal, info}: BudgetInfoProps) => {
   );
 };
 
-export default InfoBudgetModal;
+export default SettingsCategoryModal;

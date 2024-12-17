@@ -6,7 +6,6 @@ import HomeHook from '../../../hooks/screens/home.hook';
 import {useFocusEffect} from '@react-navigation/native';
 import {useCallback, useEffect} from 'react';
 import SelectComponent from '../../../components/select/select.component';
-import ButtonInfoBudgetComponent from './components/buttonInfoBudget';
 
 const HomeScreen = () => {
   const {
@@ -16,8 +15,6 @@ const HomeScreen = () => {
     budgetId,
     walletError,
     getNewWallet,
-    isVisibleBudgetModal,
-    setIsVisibleBudgetModal,
     fetchWallet,
     fetchBudgets,
     fetchCategorys,
@@ -36,7 +33,7 @@ const HomeScreen = () => {
   }, [budgetId, getNewWallet]);
 
   useFocusEffect(
-    useCallback(() => {
+    useCallback(() => { 
       fetchWallet();
       fetchBudgets();
     }, []),
@@ -58,14 +55,12 @@ const HomeScreen = () => {
           widthChoose={0.6}
           placeholder="Select Budget..."
           placeholderFocus="Budget..."
-          data={budgets} 
+          data={budgets}   
           position="bottom"
-          setID={setBudgetId}
-          openModalInfoBudget={setIsVisibleBudgetModal}
-          isVisibleModalInfoBudget={isVisibleBudgetModal}
+          setID={setBudgetId} 
+          isBudget={true} 
         />
-        <ButtonInfoBudgetComponent onPress={() => setIsVisibleBudgetModal(true)} />
-      </View>
+      </View> 
 
       <CategoryContainerComponents data={categorys} />
     </View>
