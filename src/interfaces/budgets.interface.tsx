@@ -9,3 +9,4 @@ export interface BudgetResponse {
 export interface GetBudgetResponse {
   data: BudgetResponse[] | null;
 }
+

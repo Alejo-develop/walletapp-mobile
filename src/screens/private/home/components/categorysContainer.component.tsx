@@ -22,7 +22,7 @@ const CategoryContainerComponents = ({ data }: CategoryContainerComponent) => {
             renderItem={({ item }) => (
               <View style={styles.item}>
                 <ButtonCategoryComponent
-                  icon={item.url_icon}
+                  icon={item.url_icon ? item.url_icon : 'cart-arrow-down'}
                   title={item.name}
                   cost={item.budget_for_category}
                   onPress={() => handleOpenModal(item.id)}

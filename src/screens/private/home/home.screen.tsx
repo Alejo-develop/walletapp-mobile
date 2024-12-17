@@ -10,13 +10,13 @@ import SelectComponent from '../../../components/select/select.component';
 const HomeScreen = () => {
   const {
     walletInfo,
-    categorys,
+    categorys, 
     budgets,
     budgetId,
-    walletError, 
+    walletError,  
     getNewWallet,
     fetchWallet,
-    fetchBudgets,
+    fetchBudgets, 
     fetchCategorys,
     setBudgetId,
     setGetNewWallet,
@@ -35,7 +35,7 @@ const HomeScreen = () => {
   useFocusEffect( 
     useCallback(() => {   
       fetchWallet();
-      fetchBudgets();
+      fetchBudgets(); 
     }, []),   
   );  
      
@@ -47,7 +47,7 @@ const HomeScreen = () => {
         walletError={walletError} 
         categorys={categorys}
         setNewWallet={setGetNewWallet}
-        setID={setBudgetId} 
+        setID={setBudgetId}  
       />
       <View style={styles.selectContainer}>
         <SelectComponent
@@ -59,8 +59,8 @@ const HomeScreen = () => {
           position="bottom" 
           setID={setBudgetId} 
           isBudget={true} 
-        />   
-      </View> 
+        />    
+      </View>  
 
       <CategoryContainerComponents data={categorys} /> 
     </View> 

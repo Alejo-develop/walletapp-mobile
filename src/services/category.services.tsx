@@ -1,5 +1,6 @@
 import axios from 'axios';
 import {apiUrl} from '../utils/constants/apiUrl.constants';
+import { CreateCategory } from '../interfaces/categorys.interface';
 
 export const FindCantegorysServices = async (
   budgetId: string | null,
@@ -21,6 +22,19 @@ export const FindCantegorysServices = async (
     throw err;
   }
 };
+
+export const CreateCategoryServices = async (dto :CreateCategory, token: string | null) => {
+  console.log(dto);
+  try {
+    await axios.post(`${apiUrl}/categorys/`, dto, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+  } catch (err) {
+    throw err;
+  }
+}
 
 export const AddMoneyToCategoryServices = async (
   id: string | null | undefined,

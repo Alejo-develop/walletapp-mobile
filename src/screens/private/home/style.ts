@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     width: width * 1,
     height: height * 1,
     backgroundColor: primaryColor,
-    alignItems: 'center'
+    alignItems: 'center',
   },
   containerMoney: {
     width: width * 1,
