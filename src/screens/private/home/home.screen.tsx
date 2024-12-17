@@ -13,7 +13,7 @@ const HomeScreen = () => {
     categorys,
     budgets,
     budgetId,
-    walletError,
+    walletError, 
     getNewWallet,
     fetchWallet,
     fetchBudgets,
@@ -24,47 +24,47 @@ const HomeScreen = () => {
 
   useEffect(() => {
     if (getNewWallet === true) {
-      fetchWallet();
+      fetchWallet();  
       setGetNewWallet(false);
     }
     if (budgetId) {
       fetchCategorys();
     }
   }, [budgetId, getNewWallet]);
-
-  useFocusEffect(
-    useCallback(() => { 
+  
+  useFocusEffect( 
+    useCallback(() => {   
       fetchWallet();
       fetchBudgets();
-    }, []),
-  );
-
+    }, []),   
+  );  
+     
   return (
     <View style={styles.container}>
       <WalletInfo
         budgets={budgets}
         data={walletInfo}
-        walletError={walletError}
+        walletError={walletError} 
         categorys={categorys}
         setNewWallet={setGetNewWallet}
-        setID={setBudgetId}
+        setID={setBudgetId} 
       />
       <View style={styles.selectContainer}>
         <SelectComponent
           labelFocus="Budget"
-          widthChoose={0.6}
+          widthChoose={0.6} 
           placeholder="Select Budget..."
           placeholderFocus="Budget..."
           data={budgets}   
-          position="bottom"
+          position="bottom" 
           setID={setBudgetId} 
           isBudget={true} 
-        />
+        />   
       </View> 
 
-      <CategoryContainerComponents data={categorys} />
-    </View>
-  );
+      <CategoryContainerComponents data={categorys} /> 
+    </View> 
+  ); 
 };
 
 export default HomeScreen;

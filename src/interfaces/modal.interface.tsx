@@ -1,8 +1,8 @@
 import {Dispatch, SetStateAction} from 'react';
 import {WalletInterface, WalletResponse} from './wallet.interface';
-import { BudgetResponse } from './budgets.interface';
-import { CategoryResponse } from './categorys.interface';
-import { TransactionResponseInterface } from './transactions.interface';
+import {BudgetResponse} from './budgets.interface';
+import {CategoryResponse} from './categorys.interface';
+import {TransactionResponseInterface} from './transactions.interface';
 
 export interface WalletModal {
   visible: boolean;
@@ -17,13 +17,16 @@ export interface WalletModal {
     wallet: WalletInterface | null,
     setNewWallet: Dispatch<SetStateAction<boolean>>,
   ) => Promise<void>;
-  handleSubmit: (wallet: WalletInterface | null, setNewWallet: Dispatch<SetStateAction<boolean>>) => Promise<void>;
+  handleSubmit: (
+    wallet: WalletInterface | null,
+    setNewWallet: Dispatch<SetStateAction<boolean>>,
+  ) => Promise<void>;
   setNewWallet: Dispatch<SetStateAction<boolean>>;
 }
 
-export interface HeaderModalProps{
+export interface HeaderModalProps {
   onClose: () => void;
-  text: string
+  text: string;
 }
 
 export interface TransactionModal {
@@ -35,22 +38,46 @@ export interface TransactionModal {
   setID?: React.Dispatch<React.SetStateAction<string | null>>;
 }
 
-export interface TransactionInfoProps{
+export interface TransactionInfoProps {
   visibleModal: boolean;
   onClose: () => void;
-  info: TransactionResponseInterface
+  info: TransactionResponseInterface;
 }
 
-export interface BudgetInfoProps{
+export interface BudgetInfoProps {
   visibleModal: boolean;
   onClose: () => void;
-  info: BudgetResponse | null
+  info: BudgetResponse | null;
 }
 
-export interface CategorySettingsProps{
+export interface CategorySettingsProps {
   visibleModal: boolean;
   onClose: () => void;
-  info: CategoryResponse | null
+  id: string | null;
+  info: CategoryResponse | null;
+  deleteCategory?: (id: string) => void;
+  addMoney?: (
+    id: string | null,
+    BudgetID: string | null,
+    money: number,
+  ) => void;
+}
+
+export interface DeleteAndAddMoneyModalProps {
+  id?: string |null;
+  budgetID?: string | null;
+  visibleModal: boolean;
+  onClose: () => void;
+  deleteCategory?: (id: string) => void;
+  addMoney?: (
+    id: string | null,
+    BudgetID: string | null,
+    money: number,
+  ) => void;
+  addMoneyBudget?: (
+    id: string | null,
+    money: number | null,
+  ) => void;
 }
 
 export interface CreditCardProps {
@@ -58,4 +85,3 @@ export interface CreditCardProps {
   walletError: boolean;
   handleFormChange: (field: keyof WalletResponse, value: string) => void;
 }
-

@@ -4,8 +4,17 @@ import {BudgetInfoProps} from '../../interfaces/modal.interface';
 import HeaderModalComponent from '../headerModal/headerModal.component';
 import ButtonComponent from '../buttonGeneric/button.component';
 import ButtonIconComponent from '../buttonIcon/buttonIcon.component';
+import BudgetSettingsHook from '../../hooks/modals/budgetSettings.hook';
+import AddMoneyModal from './components/addMoneyBudget.modal.tsx';
 
 const InfoBudgetModal = ({onClose, visibleModal, info}: BudgetInfoProps) => {
+  const {deleteBudget, addMoney, setModalAddMoney, isModalAddMoney} = BudgetSettingsHook()
+  const handleDelete = async () => {
+    if (info?.id && deleteBudget) {
+      await deleteBudget(info.id)
+      onClose()
+    }
+  };
   return (
     <Modal
       animationType="slide"
@@ -22,11 +31,13 @@ const InfoBudgetModal = ({onClose, visibleModal, info}: BudgetInfoProps) => {
           </View>
 
           <View style={{flexDirection: 'row', gap: 20}}>
-            <ButtonIconComponent name='trash-o' text='Delete budget'  />
-            <ButtonIconComponent name='plus' text='Add money'  />
+            <ButtonIconComponent name='trash-o' text='Delete budget' onPress={handleDelete}  />
+            <ButtonIconComponent name='plus' text='Add money'  onPress={() => setModalAddMoney(true)}/>
             <ButtonIconComponent name='cart-plus' text='Add Category'  />
           </View>
           <ButtonComponent text="Done" onPress={onClose} />
+
+          <AddMoneyModal onClose={() => setModalAddMoney(false)} visibleModal={isModalAddMoney} addMoneyBudget={addMoney} id={info?.id}/>
         </View>
       </View>
     </Modal>

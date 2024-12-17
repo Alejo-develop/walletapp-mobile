@@ -7,7 +7,7 @@ import SettingsCategoryModal from '../../../../components/settingsCategory/setti
 import CategorySettingsHook from '../../../../hooks/modals/categorySettings.hook';
 
 const CategoryContainerComponents = ({ data }: CategoryContainerComponent) => {
-  const {handleCloseModal, handleOpenModal, setVisibleModalId, visibleModalId} = CategorySettingsHook()
+  const { deleteCategory, addMoney, handleCloseModal, handleOpenModal, setVisibleModalId, visibleModalId} = CategorySettingsHook()
 
   return (
     <View style={styles.containerSectionCategory}>
@@ -31,6 +31,10 @@ const CategoryContainerComponents = ({ data }: CategoryContainerComponent) => {
                   visibleModal={visibleModalId === item.id}
                   onClose={handleCloseModal}
                   info={item}
+                  id={visibleModalId}
+                  deleteCategory={deleteCategory}
+                  addMoney={addMoney}
+                  
                 />
               </View>
             )}

@@ -36,7 +36,7 @@ const HomeHook = () => {
     const userId = auth.getId();
     const token = await auth.getToken();
     try {
-      const budgets = await GetBudgetsServices(userId, token);
+      const budgets = await GetBudgetsServices(userId, token);  
       setBudgets(budgets);
       return budgets;
     } catch (err) {

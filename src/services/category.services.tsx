@@ -21,3 +21,39 @@ export const FindCantegorysServices = async (
     throw err;
   }
 };
+
+export const AddMoneyToCategoryServices = async (
+  id: string | null | undefined,
+  token: string | null,
+  budgetID: string | null | undefined,
+  money: number,
+) => {
+  const body = {
+    budget_for_category: money,
+    budgetID
+  }
+  try {
+    await axios.patch(`${apiUrl}/categorys/${id}/`, body, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+  } catch (err) {
+    throw err;
+  }
+};
+
+export const DeleteCategoryServices = async (
+  id: string | null | undefined,
+  token: string | null,
+) => {
+  try {
+    await axios.delete(`${apiUrl}/categorys/${id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+  } catch (err) {
+    throw err;
+  }
+};
