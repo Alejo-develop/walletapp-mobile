@@ -7,6 +7,7 @@ import styles from './styles';
 import InfoBudgetModal from '../infoBudget/infoBudget.modal';
 import {BudgetResponse} from '../../interfaces/budgets.interface';
 import ButtonInfoBudgetComponent from '../../screens/private/home/components/buttonInfoBudget';
+import { useNavigation } from '@react-navigation/native';
 
 const SelectComponent = ({
   data,
@@ -25,9 +26,14 @@ const SelectComponent = ({
     null,
   );
   const [isBudgetModal, setIsBudgetModal] = useState<boolean>(false);
+  const goTo = useNavigation() as any
 
   function isBudgetResponse(item: any): item is BudgetResponse {
     return (item as BudgetResponse).id !== undefined;
+  }
+
+  const handlePress = () => {
+    goTo.navigate('createbudget')
   }
 
   const renderLabel = () => {
@@ -90,8 +96,9 @@ const SelectComponent = ({
         }}
       />
       {isBudget ? (
-        <View>
-          <ButtonInfoBudgetComponent onPress={() => setIsBudgetModal(true)} />
+        <View style={{flexDirection: 'row', gap: 10}}>
+          <ButtonInfoBudgetComponent icon='info-circle' text='Info Budget' onPress={() => setIsBudgetModal(true)} />
+          <ButtonInfoBudgetComponent icon='plus' text='Create Budget' onPress={handlePress} />
           <InfoBudgetModal
             visibleModal={isBudgetModal}
             onClose={() => setIsBudgetModal(false)}

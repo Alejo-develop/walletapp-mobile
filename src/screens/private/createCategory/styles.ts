@@ -1,9 +1,7 @@
 import {StyleSheet} from 'react-native';
 import {
-  fourthyCorlor,
   height,
   primaryColor,
-  terceryColor,
   width,
 } from '../../../utils/constants/style.constants';
 

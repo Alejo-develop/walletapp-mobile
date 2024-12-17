@@ -4,12 +4,12 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { height, primaryColor, terceryColor, width } from '../../../../utils/constants/style.constants';
 import { ButtonInfoBudgetProps } from '../../../../interfaces/button.props';
 
-const ButtonInfoBudgetComponent = ({onPress}: ButtonInfoBudgetProps) => {
+const ButtonInfoBudgetComponent = ({onPress, text, icon}: ButtonInfoBudgetProps) => {
   return (
     <TouchableOpacity style={styles.container} onPress={onPress}>
-      <Icon name="info-circle" color={terceryColor} size={height * 0.03}/>
+      <Icon name={icon} color={terceryColor} size={height * 0.03}/>
 
-      <Text>Info Budget</Text>
+      <Text style={{fontSize: height * 0.01}}>{text}</Text>
     </TouchableOpacity>
   );
 };
@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     backgroundColor: primaryColor,
     alignItems: 'center',
     borderRadius: 2,
-    width: width * 0.25,
+    width: width * 0.2,
     elevation: 6,
   },
 });

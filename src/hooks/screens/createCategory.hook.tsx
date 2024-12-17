@@ -57,7 +57,7 @@ const CreateCategoryHook = () => {
 
   const createCategory = async (
     budgetId: string | null,
-    walletId: string | null |undefined,
+    walletId: string | null | undefined,
     form: FormCategoryInterface,
   ) => {
     const token = await auth.getToken();

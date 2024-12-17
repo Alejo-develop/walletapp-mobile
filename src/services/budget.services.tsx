@@ -1,5 +1,6 @@
 import axios from 'axios';
 import {apiUrl} from '../utils/constants/apiUrl.constants';
+import {CreateBudgetInterface} from '../interfaces/budgets.interface';
 
 export const GetBudgetsServices = async (
   userId: string | null,
@@ -18,15 +19,32 @@ export const GetBudgetsServices = async (
   }
 };
 
+export const CreateBudgetsServices = async (
+  dto: CreateBudgetInterface,
+  token: string | null,
+) => {
+  try {
+    await axios.post(`${apiUrl}/budget`, dto, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    return;
+  } catch (err) {
+    throw err;
+  }
+};
+
 export const AddMoneyBudgetsServices = async (
   id: string | null,
   userId: string | null,
   token: string | null,
-  money: number
+  money: number,
 ) => {
   const dto = {
-    budget: money
-  } 
+    budget: money,
+  };
   try {
     const budgets = await axios.patch(`${apiUrl}/budget/${id}/${userId}`, dto, {
       headers: {

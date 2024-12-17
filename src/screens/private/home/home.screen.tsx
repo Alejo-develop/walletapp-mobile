@@ -37,12 +37,12 @@ const HomeScreen = () => {
       fetchWallet();
       fetchBudgets(); 
     }, []),   
-  );  
+  );   
      
   return (
     <View style={styles.container}>
       <WalletInfo
-        budgets={budgets}
+        budgets={budgets} 
         data={walletInfo}
         walletError={walletError} 
         categorys={categorys}
@@ -52,14 +52,14 @@ const HomeScreen = () => {
       <View style={styles.selectContainer}>
         <SelectComponent
           labelFocus="Budget"
-          widthChoose={0.6} 
+          widthChoose={0.5} 
           placeholder="Select Budget..."
           placeholderFocus="Budget..."
-          data={budgets}   
+          data={budgets}    
           position="bottom" 
           setID={setBudgetId} 
           isBudget={true} 
-        />    
+        />     
       </View>  
 
       <CategoryContainerComponents data={categorys} /> 

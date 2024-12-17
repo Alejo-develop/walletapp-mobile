@@ -38,6 +38,11 @@ const PrivateStacks = () => {
           component={CreateCategoryScreen}
           options={{headerShown: false}}
         />
+        <Stack.Screen
+          name="createbudget"
+          component={CreateBudgetScreen}
+          options={{headerShown: false}}
+        />
       </Stack.Navigator>
     </LayoutComponent>
   );

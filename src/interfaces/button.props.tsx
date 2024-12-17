@@ -18,4 +18,6 @@ export interface ButtonCategoryProps {
 
 export interface ButtonInfoBudgetProps {
   onPress?: () => void;
+  text: string,
+  icon: string
 }
