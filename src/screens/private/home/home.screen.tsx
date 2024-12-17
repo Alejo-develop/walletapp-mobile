@@ -10,7 +10,7 @@ import SelectComponent from '../../../components/select/select.component';
 const HomeScreen = () => {
   const {
     walletInfo,
-    categorys, 
+    categorys,  
     budgets,
     budgetId,
     walletError,  
@@ -38,7 +38,7 @@ const HomeScreen = () => {
       fetchBudgets(); 
     }, []),   
   );   
-     
+      
   return (
     <View style={styles.container}>
       <WalletInfo
@@ -46,8 +46,8 @@ const HomeScreen = () => {
         data={walletInfo}
         walletError={walletError} 
         categorys={categorys}
-        setNewWallet={setGetNewWallet}
-        setID={setBudgetId}  
+        setNewWallet={setGetNewWallet} 
+        setID={setBudgetId}     
       />
       <View style={styles.selectContainer}>
         <SelectComponent
@@ -61,7 +61,7 @@ const HomeScreen = () => {
           isBudget={true} 
         />     
       </View>  
-
+ 
       <CategoryContainerComponents data={categorys} /> 
     </View> 
   ); 

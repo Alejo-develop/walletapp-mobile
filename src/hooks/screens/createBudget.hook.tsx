@@ -48,12 +48,14 @@ const CreateBudgetHook = () => {
       userID: userId,
       walletID: walletId,
     };
+    console.log(formatedData);
+    
 
     try {
         await CreateBudgetsServices(formatedData, token)
         goTo.navigate('main');
-    } catch (error) {
-      console.log(error);
+    } catch (error: any) {
+      console.log(error.response.data.message);
     }
   };
 
